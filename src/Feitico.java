@@ -1,7 +1,7 @@
 import abstracts.ACartaFeitico;
 
 public class Feitico extends ACartaFeitico {
-    public Feitico(String nome, String tipo, String efeito, int valorEfeito) {
-        super(nome, tipo, efeito, valorEfeito);
+    public Feitico(String nome, String tipo, String dirImage, String efeito, int valorEfeito) {
+        super(nome, tipo, dirImage, efeito, valorEfeito);
     }
 }

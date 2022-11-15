@@ -4,8 +4,8 @@ public abstract class ACartaFeitico extends ACarta {
     private String efeito;
     private int valorEfeito;
 
-    public ACartaFeitico(String nome, String tipo, String efeito, int valorEfeito) {
-        super(nome, tipo);
+    public ACartaFeitico(String nome, String tipo, String dirImage, String efeito, int valorEfeito) {
+        super(nome, tipo, dirImage);
         this.efeito = efeito;
         this.valorEfeito = valorEfeito;
     }

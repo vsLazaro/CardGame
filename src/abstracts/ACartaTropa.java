@@ -6,8 +6,8 @@ public abstract class ACartaTropa extends ACarta{
     private boolean furia;
     private int buffer;
 
-    public ACartaTropa(String nome, String tipo, int vida, int dano) {
-        super(nome, tipo);
+    public ACartaTropa(String nome, String tipo, String dirImage, int vida, int dano) {
+        super(nome, tipo, dirImage);
         this.vida = vida;
         this.dano = dano;
     }
