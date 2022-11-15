@@ -1,3 +1,6 @@
+package abstracts;
+import interfaces.*;
+
 public abstract class ACarta implements ICarta {
     private String nome;
     private String tipo;

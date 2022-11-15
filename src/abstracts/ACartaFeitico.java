@@ -1,3 +1,5 @@
+package abstracts;
+
 public abstract class ACartaFeitico extends ACarta {
     private String efeito;
     private int valorEfeito;

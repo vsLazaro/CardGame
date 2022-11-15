@@ -1,3 +1,5 @@
+package abstracts;
+
 public abstract class ACartaTropa extends ACarta{ 
     private int vida;
     private int dano;
