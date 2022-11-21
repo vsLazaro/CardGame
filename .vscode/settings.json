@@ -1,0 +1,14 @@
+{
+  "vmArgs": "--module-path C:/Users/Brenda Pereira/Downloads/sqldeveloper/modules/javafx/windows-x64/lib  --add-modules javafx.swing,javafx.graphics,javafx.fxml,javafx.media,javafx.controls ",
+  "java.project.referencedLibraries": [
+    "lib/**/*.jar",
+    "c:\\JavaLibs\\javafx-sdk-19\\lib\\javafx.base.jar",
+    "c:\\JavaLibs\\javafx-sdk-19\\lib\\javafx.controls.jar",
+    "c:\\JavaLibs\\javafx-sdk-19\\lib\\javafx.fxml.jar",
+    "c:\\JavaLibs\\javafx-sdk-19\\lib\\javafx.graphics.jar",
+    "c:\\JavaLibs\\javafx-sdk-19\\lib\\javafx.media.jar",
+    "c:\\JavaLibs\\javafx-sdk-19\\lib\\javafx.swing.jar",
+    "c:\\JavaLibs\\javafx-sdk-19\\lib\\javafx.web.jar",
+    "c:\\JavaLibs\\javafx-sdk-19\\lib\\javafx-swt.jar"
+  ]
+}

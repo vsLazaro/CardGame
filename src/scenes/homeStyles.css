@@ -1,0 +1,14 @@
+#playButton {
+  -fx-display: inline-block;
+  -fx-padding: 12px 20px;
+  -fx-background-radius: 20px;
+  -fx-border-radius: 20px;
+  -fx-color: #fff;
+  -fx-border-color: rgb(4, 118, 146);
+}
+
+#playButton:hover {
+  -fx-color: rgb(53, 176, 207);
+  -fx-border: cornflowerblue;
+  -fx-text-fill: white
+}
