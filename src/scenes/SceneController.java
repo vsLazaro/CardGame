@@ -70,11 +70,11 @@ public class SceneController {
 
     }
 
-    public void selectCard1(ActionEvent event) throws IOException {
+    public void selectCard1(javafx.scene.input.MouseEvent event) throws IOException {
         System.out.println("card1");
     }
 
-    public void selectCard2(ActionEvent event) throws IOException {
+    public void selectCard2(javafx.scene.input.MouseEvent event) throws IOException {
         System.out.println("card2");
     }
 }
