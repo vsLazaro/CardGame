@@ -1,3 +1,4 @@
+package backend;
 
 public class GerenciadorDeJogadores {
     private Jogador jogador1;

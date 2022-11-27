@@ -2,6 +2,7 @@ package scenes;
 
 import java.io.IOException;
 
+import backend.Aereo;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
@@ -11,6 +12,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import java.awt.event.MouseEvent;
@@ -33,7 +35,7 @@ public class SceneController {
 
     @FXML
     private ImageView card2;
-    
+
     @FXML
     private ImageView card3;
 
@@ -66,10 +68,18 @@ public class SceneController {
 
     public void chooseCard(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("seeHand.fxml"));
+        ImageView card1 = (ImageView) root.lookup("#card1");
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
         scene = new Scene(root);
+
         stage.setScene(scene);
         stage.show();
+
+        String dirImg = "@file:/../assets/cavaleiro.jpg";
+        Aereo cartaAereo = new Aereo("servos", "aereo", dirImg, 100, 10);
+
+        card1.setImage(new Image(cartaAereo.getDirImage()));
 
     }
 
@@ -99,7 +109,7 @@ public class SceneController {
         stage.setScene(scene);
         stage.show();
     }
-    
+
     public void switchTurn(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("seeHand.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -109,11 +119,11 @@ public class SceneController {
 
     }
 
-    /* 
+    /*
      * To Do's
      * - Lógica de troca de turnos e gerenciar renderização de acordo
      * - Popular "mão" com cartas do backned
-     * - 
+     * -
      * 
      */
 }
