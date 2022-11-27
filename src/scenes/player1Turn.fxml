@@ -22,7 +22,7 @@
                   <Font size="24.0" />
                </font>
             </Text>
-            <Button layoutX="306.0" layoutY="175.0" mnemonicParsing="false" text="Jogar" />
+            <Button layoutX="306.0" layoutY="175.0" mnemonicParsing="false" text="Jogar" onAction="#chooseCard" />
          </children>
     </AnchorPane>
   </children>

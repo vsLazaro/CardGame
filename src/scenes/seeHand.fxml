@@ -22,12 +22,12 @@
                   <Font size="24.0" />
                </font>
             </Text>
-            <ImageView fx:id="card1" fitHeight="96.0" fitWidth="77.0" layoutX="242.0" layoutY="190.0">
+            <ImageView fx:id="card1" fitHeight="96.0" fitWidth="77.0" layoutX="242.0" layoutY="190.0" onMouseClicked="#selectCard1">
                <image>
                   <Image url="@../assets/arqueira.jpg" />
                </image>
             </ImageView>
-            <ImageView fx:id="card2" fitHeight="96.0" fitWidth="77.0" layoutX="366.0" layoutY="190.0">
+            <ImageView fx:id="card2" fitHeight="96.0" fitWidth="77.0" layoutX="366.0" layoutY="190.0" onMouseClicked="#selectCard2">
                <image>
                   <Image url="@../assets/bebe-dragao.jpg" />
                </image>
