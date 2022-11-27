@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scenes.SceneController">
+  <children>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="402.0" prefWidth="694.0" VBox.vgrow="ALWAYS">
+         <children>
+            <ImageView fitHeight="400.0" fitWidth="640.0">
+               <image>
+                  <Image url="@../assets/arena-horizontal-escura.jpg" />
+               </image>
+            </ImageView>
+            <Text fill="WHITE" layoutX="213.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Jogador 2 é sua vez!" wrappingWidth="231.49609375">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <Button layoutX="306.0" layoutY="175.0" mnemonicParsing="false" text="Jogar" />
+         </children>
+    </AnchorPane>
+  </children>
+</VBox>

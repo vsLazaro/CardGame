@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scenes.SceneController">
+  <children>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="402.0" prefWidth="694.0" VBox.vgrow="ALWAYS">
+         <children>
+            <ImageView fitHeight="402.0" fitWidth="680.0" layoutY="-1.0">
+               <image>
+                  <Image url="@../assets/arena-horizontal.jpg" />
+               </image>
+            </ImageView>
+            <Text fill="WHITE" layoutX="250.0" layoutY="152.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Escolha uma carta" wrappingWidth="231.49609375">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <ImageView fx:id="card1" fitHeight="96.0" fitWidth="77.0" layoutX="242.0" layoutY="190.0">
+               <image>
+                  <Image url="@../assets/arqueira.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="card2" fitHeight="96.0" fitWidth="77.0" layoutX="366.0" layoutY="190.0">
+               <image>
+                  <Image url="@../assets/bebe-dragao.jpg" />
+               </image>
+            </ImageView>
+            <Text fill="WHITE" layoutX="242.0" layoutY="301.0" strokeType="OUTSIDE" strokeWidth="0.0" text="vida: x " wrappingWidth="54.49609375">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="366.0" layoutY="300.0" strokeType="OUTSIDE" strokeWidth="0.0" text="vida: x " wrappingWidth="54.49609375">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="242.0" layoutY="318.0" strokeType="OUTSIDE" strokeWidth="0.0" text="dano: x " wrappingWidth="54.49609375">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="366.0" layoutY="318.0" strokeType="OUTSIDE" strokeWidth="0.0" text="dano: x " wrappingWidth="54.49609375">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+         </children>
+    </AnchorPane>
+  </children>
+</VBox>
