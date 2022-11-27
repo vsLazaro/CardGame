@@ -74,14 +74,46 @@ public class SceneController {
     }
 
     public void selectCard1(javafx.scene.input.MouseEvent event) throws IOException {
-        System.out.println("card1");
+        System.out.println(card1);
+        Parent root = FXMLLoader.load(getClass().getResource("switchTurn.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
     public void selectCard2(javafx.scene.input.MouseEvent event) throws IOException {
         System.out.println("card2");
+        Parent root = FXMLLoader.load(getClass().getResource("switchTurn.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
-     public void selectCard3(javafx.scene.input.MouseEvent event) throws IOException {
+    public void selectCard3(javafx.scene.input.MouseEvent event) throws IOException {
         System.out.println("card3");
+        Parent root = FXMLLoader.load(getClass().getResource("switchTurn.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
+    
+    public void switchTurn(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("seeHand.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+
+    }
+
+    /* 
+     * To Do's
+     * - Lógica de troca de turnos e gerenciar renderização de acordo
+     * - Popular "mão" com cartas do backned
+     * - 
+     * 
+     */
 }
