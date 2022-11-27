@@ -22,32 +22,47 @@
                   <Font size="24.0" />
                </font>
             </Text>
-            <ImageView fx:id="card1" fitHeight="96.0" fitWidth="77.0" layoutX="242.0" layoutY="190.0" onMouseClicked="#selectCard1">
+            <ImageView fx:id="card1" fitHeight="96.0" fitWidth="77.0" layoutX="194.0" layoutY="190.0" onMouseClicked="#selectCard1">
                <image>
                   <Image url="@../assets/arqueira.jpg" />
                </image>
             </ImageView>
-            <ImageView fx:id="card2" fitHeight="96.0" fitWidth="77.0" layoutX="366.0" layoutY="190.0" onMouseClicked="#selectCard2">
+            <ImageView fx:id="card2" fitHeight="96.0" fitWidth="77.0" layoutX="316.0" layoutY="190.0" onMouseClicked="#selectCard2">
                <image>
                   <Image url="@../assets/bebe-dragao.jpg" />
                </image>
             </ImageView>
-            <Text fill="WHITE" layoutX="242.0" layoutY="301.0" strokeType="OUTSIDE" strokeWidth="0.0" text="vida: x " wrappingWidth="54.49609375">
+            <Text fill="WHITE" layoutX="194.0" layoutY="301.0" strokeType="OUTSIDE" strokeWidth="0.0" text="vida: x " wrappingWidth="54.49609375">
                <font>
                   <Font size="14.0" />
                </font>
             </Text>
-            <Text fill="WHITE" layoutX="366.0" layoutY="300.0" strokeType="OUTSIDE" strokeWidth="0.0" text="vida: x " wrappingWidth="54.49609375">
+            <Text fill="WHITE" layoutX="327.0" layoutY="302.0" strokeType="OUTSIDE" strokeWidth="0.0" text="vida: x " wrappingWidth="54.49609375">
                <font>
                   <Font size="14.0" />
                </font>
             </Text>
-            <Text fill="WHITE" layoutX="242.0" layoutY="318.0" strokeType="OUTSIDE" strokeWidth="0.0" text="dano: x " wrappingWidth="54.49609375">
+            <Text fill="WHITE" layoutX="194.0" layoutY="318.0" strokeType="OUTSIDE" strokeWidth="0.0" text="dano: x " wrappingWidth="54.49609375">
                <font>
                   <Font size="14.0" />
                </font>
             </Text>
-            <Text fill="WHITE" layoutX="366.0" layoutY="318.0" strokeType="OUTSIDE" strokeWidth="0.0" text="dano: x " wrappingWidth="54.49609375">
+            <Text fill="WHITE" layoutX="327.0" layoutY="320.0" strokeType="OUTSIDE" strokeWidth="0.0" text="dano: x " wrappingWidth="54.49609375">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="96.0" fitWidth="77.0" layoutX="443.0" layoutY="190.0" onMouseClicked="#selectCard3">
+               <image>
+                  <Image url="@../assets/balao.jpg" />
+               </image>
+            </ImageView>
+            <Text fill="WHITE" layoutX="454.0" layoutY="321.0" strokeType="OUTSIDE" strokeWidth="0.0" text="dano: x " wrappingWidth="54.49609375">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="454.0" layoutY="304.0" strokeType="OUTSIDE" strokeWidth="0.0" text="vida: x " wrappingWidth="54.49609375">
                <font>
                   <Font size="14.0" />
                </font>

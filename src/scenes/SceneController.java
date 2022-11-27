@@ -33,6 +33,9 @@ public class SceneController {
 
     @FXML
     private ImageView card2;
+    
+    @FXML
+    private ImageView card3;
 
     public void switchToScene1(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("initialScreen.fxml"));
@@ -76,5 +79,9 @@ public class SceneController {
 
     public void selectCard2(javafx.scene.input.MouseEvent event) throws IOException {
         System.out.println("card2");
+    }
+
+     public void selectCard3(javafx.scene.input.MouseEvent event) throws IOException {
+        System.out.println("card3");
     }
 }
