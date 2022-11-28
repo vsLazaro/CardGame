@@ -64,9 +64,9 @@ public class Jogador {
     }
 
     public boolean jogarCarta(ACartaTropa carta) {
-        if(!this.jogarCarta) {
+       /*  if(!this.jogarCarta) {
             return false;
-        }
+        } */
         if(this.mao.contains(carta)) {
             this.campo.inserirCarta(carta);
             this.mao.remove(carta);

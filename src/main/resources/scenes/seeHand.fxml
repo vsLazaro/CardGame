@@ -32,11 +32,11 @@
                   <Image url="@assets/bebe-dragao.jpg" />
                </image>
             </ImageView>
-            <ImageView fx:id="card3" fitHeight="96.0" fitWidth="77.0" layoutX="443.0" layoutY="190.0" onMouseClicked="#selectCard3">
+          <!--   <ImageView fx:id="card3" fitHeight="96.0" fitWidth="77.0" layoutX="443.0" layoutY="190.0" onMouseClicked="#showTableCard">
                <image>
                   <Image url="@assets/balao.jpg" />
                </image>
-            </ImageView>
+            </ImageView> -->
             <Text fill="WHITE" layoutX="194.0" layoutY="301.0" strokeType="OUTSIDE" fx:id="vidaCard1" strokeWidth="0.0" text="vida: x " wrappingWidth="75">
                <font>
                   <Font size="14.0" />
@@ -57,7 +57,7 @@
                   <Font size="14.0" />
                </font>
             </Text>
-            <Text fill="WHITE" layoutX="454.0" layoutY="304.0" strokeType="OUTSIDE" fx:id="vidaCard3" strokeWidth="0.0" text="vida: x " wrappingWidth="75">
+            <!-- <Text fill="WHITE" layoutX="454.0" layoutY="304.0" strokeType="OUTSIDE" fx:id="vidaCard3" strokeWidth="0.0" text="vida: x " wrappingWidth="75">
                <font>
                   <Font size="14.0" />
                </font>
@@ -66,7 +66,7 @@
                <font>
                   <Font size="14.0" />
                </font>
-            </Text>
+            </Text> -->
          </children>
     </AnchorPane>
   </children>
