@@ -14,7 +14,7 @@
          <children>
             <ImageView fitHeight="402.0" fitWidth="642.0" >
                <image>
-                  <Image url="@../assets/ElGJfedX0AExq3r.jpg" />
+                  <Image url="@assets/ElGJfedX0AExq3r.jpg" />
                </image>
             </ImageView>
             <Label layoutX="322.0" layoutY="127.0" prefHeight="50.0" prefWidth="130.0" text="TELA DOIXXX" textFill="WHITE" underline="true">

@@ -14,12 +14,12 @@
          <children>
             <ImageView fitHeight="402.0" fitWidth="680.0" layoutY="-1.0">
                <image>
-                  <Image url="@../assets/arena-horizontal.jpg" />
+                  <Image url="@assets/arena-horizontal.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="card1" fitHeight="48.0" fitWidth="37.0" layoutX="266.0" layoutY="163.0" onMouseClicked="#selectCard1">
                <image>
-                  <Image url="@../assets/arqueira.jpg" />
+                  <Image url="@assets/arqueira.jpg" />
                </image>
             </ImageView>
             <Text fill="WHITE" layoutX="211.0" layoutY="182.0" strokeType="OUTSIDE" strokeWidth="0.0" text="vida: x " wrappingWidth="54.49609375">

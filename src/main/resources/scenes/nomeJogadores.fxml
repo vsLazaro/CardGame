@@ -14,7 +14,7 @@
          <children>
             <ImageView fitHeight="420.0" fitWidth="640.0">
                <image>
-                  <Image url="@../assets/background.jpg" />
+                  <Image url="@assets/background.jpg" />
                </image>
             </ImageView>
             <Text layoutX="240.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome do Jogador numero 1" wrappingWidth="160.486328125" />

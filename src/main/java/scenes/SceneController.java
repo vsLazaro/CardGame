@@ -1,6 +1,10 @@
 package scenes;
 
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.net.URL;
+
+import javax.imageio.ImageIO;
 
 import backend.Aereo;
 import backend.Tanque;
@@ -84,14 +88,13 @@ public class SceneController {
 
         stage.setScene(scene);
         stage.show();
-        
-        String dirImg1 = "@file:/../assets/bebe-dragao.jpg";
-        String dirImg2 = "@file:/../assets/esqueleto-gigante.jpg";
-        String dirImg3 = "@file:/../assets/mosqueteira.jpg";
+        String dirImg1 = "/scenes/assets/bebe-dragao.jpg";
+        String dirImg2 = "/scenes/assets/esqueleto-gigante.jpg";
+        String dirImg3 = "/scenes/assets/mosqueteira.jpg";
         Aereo cartaAereo = new Aereo("bebê dragão", "aereo", dirImg1, 100, 10);
         Tanque cartaTanque = new Tanque("Esqueleto", "terrestre", dirImg2, 100, 10);
         Terrestre cartaTerrestre = new Terrestre("mosqueteira", "terrestre", dirImg3, 100, 10);
-
+     
         card1.setImage(new Image(cartaAereo.getDirImage()));
         vidaCard1.setText("Vida: " + String.valueOf(cartaAereo.getVida()));
         danoCard1.setText("Dano: X" /* + String.valueOf(cartaAereo.get()) */);

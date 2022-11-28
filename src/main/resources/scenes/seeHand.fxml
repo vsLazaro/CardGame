@@ -14,7 +14,7 @@
          <children>
             <ImageView fitHeight="402.0" fitWidth="680.0" layoutY="-1.0">
                <image>
-                  <Image url="@../assets/arena-horizontal.jpg" />
+                  <Image url="@assets/arena-horizontal.jpg" />
                </image>
             </ImageView>
             <Text fill="WHITE" layoutX="250.0" layoutY="152.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Escolha uma carta" wrappingWidth="231.49609375">
@@ -24,17 +24,17 @@
             </Text>
             <ImageView fx:id="card1" fitHeight="96.0" fitWidth="77.0" layoutX="194.0" layoutY="190.0" onMouseClicked="#selectCard1">
                <image>
-                  <Image url="@../assets/arqueira.jpg" />
+                  <Image url="@assets/arqueira.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="card2" fitHeight="96.0" fitWidth="77.0" layoutX="316.0" layoutY="190.0" onMouseClicked="#selectCard2">
                <image>
-                  <Image url="@../assets/bebe-dragao.jpg" />
+                  <Image url="@assets/bebe-dragao.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="card3" fitHeight="96.0" fitWidth="77.0" layoutX="443.0" layoutY="190.0" onMouseClicked="#selectCard3">
                <image>
-                  <Image url="@../assets/balao.jpg" />
+                  <Image url="@assets/balao.jpg" />
                </image>
             </ImageView>
             <Text fill="WHITE" layoutX="194.0" layoutY="301.0" strokeType="OUTSIDE" fx:id="vidaCard1" strokeWidth="0.0" text="vida: x " wrappingWidth="75">

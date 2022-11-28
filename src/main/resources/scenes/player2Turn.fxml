@@ -14,7 +14,7 @@
          <children>
             <ImageView fitHeight="400.0" fitWidth="640.0">
                <image>
-                  <Image url="@../assets/arena-horizontal-escura.jpg" />
+                  <Image url="@assets/arena-horizontal-escura.jpg" />
                </image>
             </ImageView>
             <Text fill="WHITE" layoutX="213.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Jogador 2 é sua vez!" wrappingWidth="231.49609375">
