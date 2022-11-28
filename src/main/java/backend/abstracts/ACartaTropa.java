@@ -5,11 +5,20 @@ public abstract class ACartaTropa extends ACarta{
     private int dano;
     private boolean furia;
     private int buffer;
+    private boolean primeiroRound;
 
     public ACartaTropa(String nome, String tipo, String dirImage, int vida, int dano) {
         super(nome, tipo, dirImage);
         this.vida = vida;
         this.dano = dano;
+        this.primeiroRound = true;
+    }
+    
+    public boolean getPrimeiroRound() {
+        return this.primeiroRound;
+    }
+    public int getDano() {
+        return this.dano;
     }
 
     public int getVida() {
@@ -24,8 +33,9 @@ public abstract class ACartaTropa extends ACarta{
         this.vida = this.vida - dano;
     }
 
-    public void cura(int cura) {
+    public boolean cura(int cura) {
         this.vida = this.vida + cura;
+        return true;
     }
     
     public boolean getFuria() {
@@ -40,5 +50,9 @@ public abstract class ACartaTropa extends ACarta{
             this.furia = false;
             this.buffer = 0;
         }
+    }
+
+    public void passouPrimeiroRound() {
+        this.primeiroRound = false;
     }
 }
