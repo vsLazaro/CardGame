@@ -1,3 +1,4 @@
+package backend;
 import abstracts.ACartaFeitico;
 
 public class Feitico extends ACartaFeitico {
