@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 
-import abstracts.ACarta;
+import backend.abstracts.ACarta;
 
 public class Jogador {
     private ArrayList<ACarta> mao = new ArrayList<>();

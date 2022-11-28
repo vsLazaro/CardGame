@@ -1,4 +1,4 @@
-package abstracts;
+package backend.abstracts;
 
 public abstract class ACartaTropa extends ACarta{ 
     private int vida;

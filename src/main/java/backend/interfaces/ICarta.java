@@ -1,4 +1,4 @@
-package interfaces;
+package backend.interfaces;
 
 public interface ICarta {
     public String getTipo();

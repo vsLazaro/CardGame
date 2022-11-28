@@ -1,4 +1,4 @@
-package abstracts;
+package backend.abstracts;
 
 public abstract class ACartaFeitico extends ACarta {
     private String efeito;

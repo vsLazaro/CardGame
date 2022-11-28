@@ -1,4 +1,5 @@
-package abstracts;
+package backend.abstracts;
+import backend.interfaces.ICarta;
 import interfaces.*;
 
 public abstract class ACarta implements ICarta {

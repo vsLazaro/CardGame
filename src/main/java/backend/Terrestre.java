@@ -1,5 +1,5 @@
 package backend;
-import abstracts.ACartaTropa;
+import backend.abstracts.ACartaTropa;
 
 public class Terrestre extends ACartaTropa {
     public Terrestre(String nome, String tipo, String dirImage, int vida, int dano) {

@@ -1,8 +1,7 @@
 package backend;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
-import abstracts.ACarta;
+import backend.abstracts.ACarta;
 
 public class CampoJogador {
     private ArrayList<ACarta> cartasCampo;
