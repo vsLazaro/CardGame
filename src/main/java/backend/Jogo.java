@@ -37,14 +37,22 @@ public class Jogo {
     }
 
     public ArrayList<ACartaTropa> getCampoJogador() {
-        if(jogando == 1) {
+        if (jogando == 1) {
             return this.arena.getJogador1().getCartasCampo();
         }
+        return this.arena.getJogador2().getCartasCampo();
+    }
+
+    public ArrayList<ACartaTropa> getCampoJogador1() {
         return this.arena.getJogador1().getCartasCampo();
     }
 
+    public ArrayList<ACartaTropa> getCampoJogador2() {
+        return this.arena.getJogador2().getCartasCampo();
+    }
+
     public ArrayList<ACarta> getMaoJogador() {
-        if(jogando == 1) {
+        if (jogando == 1) {
             return this.arena.getJogador1().getCartaMao();
         }
         return this.arena.getJogador2().getCartaMao();
@@ -62,37 +70,38 @@ public class Jogo {
         boolean jogador1 = arena.getJogador1().acabouTurno();
         boolean jogador2 = arena.getJogador2().acabouTurno();
 
-        if(!jogador1) {
+        if (!jogador1) {
             ganhador = arena.getJogador2().getNome();
-            return true; 
+            return true;
         }
 
-        if(!jogador2) {
+        if (!jogador2) {
             ganhador = arena.getJogador1().getNome();
             return true;
         }
-        return false;   
+        return false;
     }
 
     public ArrayList<ACartaTropa> jogarCarta(ACarta carta) {
-        if(jogando == 1) {
-            if(carta instanceof ACartaTropa) {
-                arena.inserirCarta(jogando, (ACartaTropa)carta);
+        System.out.println("chamou jogar carta");
+        if (jogando == 1) {
+            if (carta instanceof ACartaTropa) {
+                arena.inserirCarta(jogando, (ACartaTropa) carta);
                 return arena.getJogador1().getCartasCampo();
             }
-            arena.jogarFeitico(jogando, (ACartaFeitico)carta);
+            arena.jogarFeitico(jogando, (ACartaFeitico) carta);
             return arena.getJogador2().getCartasCampo();
         }
-        if(carta instanceof ACartaTropa) {
-            arena.inserirCarta(jogando, (ACartaTropa)carta);
+        if (carta instanceof ACartaTropa) {
+            arena.inserirCarta(jogando, (ACartaTropa) carta);
             return arena.getJogador2().getCartasCampo();
         }
-        arena.jogarFeitico(jogando, (ACartaFeitico)carta);
+        arena.jogarFeitico(jogando, (ACartaFeitico) carta);
         return arena.getJogador2().getCartasCampo();
     }
 
     public ArrayList<ACartaTropa> atacar() {
-        if(jogando == 1) {
+        if (jogando == 1) {
             arena.atacar(jogando);
             return arena.getJogador2().getCartasCampo();
         }
@@ -100,4 +109,3 @@ public class Jogo {
         return arena.getJogador1().getCartasCampo();
     }
 }
-

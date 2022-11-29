@@ -107,88 +107,97 @@ public class SceneController {
         root.setController(new SceneController(jogo));
         Parent parent = (Parent) root.load();
 
-        ArrayList<ACarta> listaCartas = jogo.getMaoJogador();
-        ImageView card1 = (ImageView) parent.lookup("#play1Card1");
-        ImageView card2 = (ImageView) parent.lookup("#play1Card2");
-        ImageView card3 = (ImageView) parent.lookup("#play1Card3");
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        ArrayList<ACartaTropa> campo1 = jogo.getCampoJogador1();
+        ArrayList<ACartaTropa> campo2 = jogo.getCampoJogador2();
 
-        scene = new Scene(parent);
 
-        stage.setScene(scene);
-        stage.show();
-
-        Text card1Vida = (Text) parent.lookup("#Play1Card1Vida");
-        Text card2Vida = (Text) parent.lookup("#Play1Card2Vida");
-        Text card3Vida = (Text) parent.lookup("#Play1Card3Vida");
-        Text card1Dano = (Text) parent.lookup("#Play1Card1Dano");
-        Text card2Dano = (Text) parent.lookup("#Play1Card2Dano");
-        Text card3Dano = (Text) parent.lookup("#Play1Card3Dano");
-
-        for (int i = 0; i < listaCartas.size(); i++) {
-            switch (i) {
-                case 0:
-                    if (listaCartas.get(i) instanceof ACartaTropa) {
-                        ACartaTropa cartaTropa = (ACartaTropa) listaCartas.get(i);
-                        card1.setImage(new Image(cartaTropa.getDirImage()));
-                        card1.setOnMouseClicked(mouseevent -> {
-                            jogo.jogarCarta(cartaTropa);
-                        });
-                        card1Vida.setText("Vida: " + String.valueOf(cartaTropa.getVida()));
-                        card1Dano.setText("Dano: " + String.valueOf(cartaTropa.getDano()));
-
-                    } else {
-                        ACartaFeitico cartaFeitico = (ACartaFeitico) listaCartas.get(i);
-                        card1.setImage(new Image(cartaFeitico.getDirImage()));
-                        card1Vida.setText("Efeito: " + cartaFeitico.getEfeito());
-                        card1Dano.setText("Valor Efeito: " + String.valueOf(cartaFeitico.getValorEfeito()));
-                        card1.setOnMouseClicked(mouseevent -> {
-                            jogo.jogarCarta(cartaFeitico);
-                        });
+        while (!jogo.acabouJogo()) {
+            if (jogo.getRodadas() % 2 == 0) {
+                
+                ArrayList<ACarta> listaCartas = jogo.getMaoJogador();
+                ImageView card1 = (ImageView) parent.lookup("#play1Card1");
+                ImageView card2 = (ImageView) parent.lookup("#play1Card2");
+                ImageView card3 = (ImageView) parent.lookup("#play1Card3");
+                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        
+                scene = new Scene(parent);
+        
+                stage.setScene(scene);
+                stage.show();
+        
+                Text card1Vida = (Text) parent.lookup("#Play1Card1Vida");
+                Text card2Vida = (Text) parent.lookup("#Play1Card2Vida");
+                Text card3Vida = (Text) parent.lookup("#Play1Card3Vida");
+                Text card1Dano = (Text) parent.lookup("#Play1Card1Dano");
+                Text card2Dano = (Text) parent.lookup("#Play1Card2Dano");
+                Text card3Dano = (Text) parent.lookup("#Play1Card3Dano");
+                
+                for (int i = 0; i < listaCartas.size(); i++) {
+                    switch (i) {
+                        case 0:
+                            if (listaCartas.get(i) instanceof ACartaTropa) {
+                                ACartaTropa cartaTropa = (ACartaTropa) listaCartas.get(i);
+                                card1.setImage(new Image(cartaTropa.getDirImage()));
+                                card1.setOnMouseClicked(mouseevent -> {
+                                    jogo.jogarCarta(cartaTropa);
+                                });
+                                card1Vida.setText("Vida: " + String.valueOf(cartaTropa.getVida()));
+                                card1Dano.setText("Dano: " + String.valueOf(cartaTropa.getDano()));
+        
+                            } else {
+                                ACartaFeitico cartaFeitico = (ACartaFeitico) listaCartas.get(i);
+                                card1.setImage(new Image(cartaFeitico.getDirImage()));
+                                card1Vida.setText("Efeito: " + cartaFeitico.getEfeito());
+                                card1Dano.setText("Valor Efeito: " + String.valueOf(cartaFeitico.getValorEfeito()));
+                                card1.setOnMouseClicked(mouseevent -> {
+                                    jogo.jogarCarta(cartaFeitico);
+                                });
+                            }
+                            break;
+                        case 1:
+                            if (listaCartas.get(i) instanceof ACartaTropa) {
+                                ACartaTropa cartaTropa = (ACartaTropa) listaCartas.get(i);
+                                System.out.println(cartaTropa);
+                                card2.setImage(new Image(cartaTropa.getDirImage()));
+                                card2Vida.setText("Vida: " + String.valueOf(cartaTropa.getVida()));
+                                card2Dano.setText("Dano: " + String.valueOf(cartaTropa.getDano()));
+                                card2.setOnMouseClicked(mouseevent -> {
+                                    jogo.jogarCarta(cartaTropa);
+                                });
+                            } else {
+                                ACartaFeitico cartaFeitico = (ACartaFeitico) listaCartas.get(i);
+                                card2.setImage(new Image(cartaFeitico.getDirImage()));
+                                card2Vida.setText("Efeito: " + cartaFeitico.getEfeito());
+                                card2Dano.setText("Valor Efeito: " + String.valueOf(cartaFeitico.getValorEfeito()));
+                                card2.setOnMouseClicked(mouseevent -> {
+                                    jogo.jogarCarta(cartaFeitico);
+                                });
+                            }
+                            break;
+                        case 2:
+                            if (listaCartas.get(i) instanceof ACartaTropa) {
+                                ACartaTropa cartaTropa = (ACartaTropa) listaCartas.get(i);
+                                System.out.println(cartaTropa);
+                                card3.setImage(new Image(cartaTropa.getDirImage()));
+                                card3Vida.setText("Vida: " + String.valueOf(cartaTropa.getVida()));
+                                card3Dano.setText("Dano: " + String.valueOf(cartaTropa.getDano()));
+                                card3.setOnMouseClicked(mouseevent -> {
+                                    jogo.jogarCarta(cartaTropa);
+                                });
+                            } else {
+                                ACartaFeitico cartaFeitico = (ACartaFeitico) listaCartas.get(i);
+                                card3.setImage(new Image(cartaFeitico.getDirImage()));
+                                card3Vida.setText("Efeito: " + cartaFeitico.getEfeito());
+                                card3Dano.setText("Valor Efeito: " + String.valueOf(cartaFeitico.getValorEfeito()));
+                                card3.setOnMouseClicked(mouseevent -> {
+                                    jogo.jogarCarta(cartaFeitico);
+                                });
+                            }
+                            break;
+                        default:
+                            break;
                     }
-                    break;
-                case 1:
-                    if (listaCartas.get(i) instanceof ACartaTropa) {
-                        ACartaTropa cartaTropa = (ACartaTropa) listaCartas.get(i);
-                        System.out.println(cartaTropa);
-                        card2.setImage(new Image(cartaTropa.getDirImage()));
-                        card2Vida.setText("Vida: " + String.valueOf(cartaTropa.getVida()));
-                        card2Dano.setText("Dano: " + String.valueOf(cartaTropa.getDano()));
-                        card2.setOnMouseClicked(mouseevent -> {
-                            jogo.jogarCarta(cartaTropa);
-                        });
-                    } else {
-                        ACartaFeitico cartaFeitico = (ACartaFeitico) listaCartas.get(i);
-                        card2.setImage(new Image(cartaFeitico.getDirImage()));
-                        card2Vida.setText("Efeito: " + cartaFeitico.getEfeito());
-                        card2Dano.setText("Valor Efeito: " + String.valueOf(cartaFeitico.getValorEfeito()));
-                        card2.setOnMouseClicked(mouseevent -> {
-                            jogo.jogarCarta(cartaFeitico);
-                        });
-                    }
-                    break;
-                case 2:
-                    if (listaCartas.get(i) instanceof ACartaTropa) {
-                        ACartaTropa cartaTropa = (ACartaTropa) listaCartas.get(i);
-                        System.out.println(cartaTropa);
-                        card3.setImage(new Image(cartaTropa.getDirImage()));
-                        card3Vida.setText("Vida: " + String.valueOf(cartaTropa.getVida()));
-                        card3Dano.setText("Dano: " + String.valueOf(cartaTropa.getDano()));
-                        card3.setOnMouseClicked(mouseevent -> {
-                            jogo.jogarCarta(cartaTropa);
-                        });
-                    } else {
-                        ACartaFeitico cartaFeitico = (ACartaFeitico) listaCartas.get(i);
-                        card3.setImage(new Image(cartaFeitico.getDirImage()));
-                        card3Vida.setText("Efeito: " + cartaFeitico.getEfeito());
-                        card3Dano.setText("Valor Efeito: " + String.valueOf(cartaFeitico.getValorEfeito()));
-                        card3.setOnMouseClicked(mouseevent -> {
-                            jogo.jogarCarta(cartaFeitico);
-                        });
-                    }
-                    break;
-                default:
-                    break;
+                }
             }
         }
     }
