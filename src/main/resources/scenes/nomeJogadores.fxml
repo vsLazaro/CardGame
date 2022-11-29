@@ -8,20 +8,20 @@
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="402.0" prefWidth="694.0" VBox.vgrow="ALWAYS">
          <children>
-            <ImageView fitHeight="420.0" fitWidth="640.0">
+            <ImageView fitHeight="600.0" fitWidth="1000.0">
                <image>
                   <Image url="@assets/background.jpg" />
                </image>
             </ImageView>
-            <Text layoutX="240.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome do Jogador numero 1" wrappingWidth="160.486328125" />
-            <TextField fx:id="namePlayer1" layoutX="240.0" layoutY="134.0" prefHeight="25.0" prefWidth="160.0" />
-            <TextField fx:id="namePlayer2" layoutX="240.0" layoutY="215.0" prefHeight="25.0" prefWidth="160.0" />
-            <Text layoutX="240.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome do Jogador numero 2" wrappingWidth="160.486328125" />
-            <Button fx:id="enterButton" layoutX="296.0" layoutY="267.0" mnemonicParsing="false" text="Entrar" onAction="#enterGame"/>
+            <Text layoutX="420.0" layoutY="220.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome do Jogador numero 1" wrappingWidth="160.486328125" />
+            <TextField fx:id="namePlayer1" layoutX="420.0" layoutY="235.0" prefHeight="25.0" prefWidth="160.0" />
+            <TextField fx:id="namePlayer2"  layoutX="420.0" layoutY="316.0" prefHeight="25.0" prefWidth="160.0" />
+            <Text layoutX="420.0" layoutY="301.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome do Jogador numero 2" wrappingWidth="160.486328125" />
+            <Button fx:id="enterButton" layoutX="476.0" layoutY="368.0"  mnemonicParsing="false" text="Entrar" onAction="#enterGame"/>
          </children>
     </AnchorPane>
   </children>

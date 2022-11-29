@@ -8,11 +8,11 @@
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scenes.SceneController">
+<VBox  prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scenes.SceneController">
   <children>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="402.0" prefWidth="694.0" VBox.vgrow="ALWAYS">
          <children>
-            <ImageView fitHeight="402.0" fitWidth="680.0" layoutY="-1.0">
+            <ImageView  fitHeight="600.0" fitWidth="900.0" layoutY="-1.0">
                <image>
                   <Image url="@assets/arena-horizontal.jpg" />
                </image>

@@ -79,9 +79,9 @@ public class SceneController {
         stage.show();
     }
 
-    public void switchToScene2(ActionEvent event) throws IOException {
+    public void playButton(ActionEvent event) throws IOException {
         FXMLLoader root = new FXMLLoader(getClass().getResource("nomeJogadores.fxml"));
-        root.setController(new SceneController(arena));
+        root.setController(new SceneController(jogo));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root.load());
         stage.setScene(scene);
@@ -95,7 +95,7 @@ public class SceneController {
         System.out.println("Passei");
         
 
-        FXMLLoader root = new FXMLLoader(getClass().getResource("player1Turn.fxml"));
+        FXMLLoader root = new FXMLLoader(getClass().getResource("arena.fxml"));
         root.setController(new SceneController(jogo));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root.load());
@@ -122,7 +122,7 @@ public class SceneController {
         stage.show();
         System.out.println(this.jogo);
         int numRodadas = 0;
-        if (numRodadas < 10) {
+       /*  if (numRodadas < 10) {
             setCurrentPlayer(numRodadas);
 
             ArrayList<ACarta> mao = jogo.cartasNaMaoJogadores(getCurrentPlayer());
@@ -135,7 +135,7 @@ public class SceneController {
                             System.out.println(cartaTropa);
                             card1.setImage(new Image(cartaTropa.getDirImage()));
                             vidaCard1.setText("Vida: X" + String.valueOf(cartaTropa.getVida()));
-                            danoCard1.setText("Dano: X" /* + String.valueOf(cartaAereo.get()) */);
+                            danoCard1.setText("Dano: X" /* + String.valueOf(cartaAereo.get()));
                             setCarta1(cartaTropa);
                             System.out.println(getCarta1());
                         } else {
@@ -152,7 +152,7 @@ public class SceneController {
                             ACartaTropa cartaTropa = (ACartaTropa) mao.get(i);
                             card2.setImage(new Image(cartaTropa.getDirImage()));
                             vidaCard2.setText("Vida: X" + String.valueOf(cartaTropa.getVida()));
-                            danoCard2.setText("Dano: X" /* + String.valueOf(cartaAereo.get()) */);
+                            danoCard2.setText("Dano: X" /* + String.valueOf(cartaAereo.get()));
                             setCarta2(cartaTropa);
                         } else {
                             ACartaFeitico cartaFeitico = (ACartaFeitico) mao.get(i);
@@ -172,10 +172,10 @@ public class SceneController {
         } else {
             System.out.println("jogo acabou");
         }
-
+        **/
     }
     public void selectCard1(javafx.scene.input.MouseEvent event) throws IOException {
-        System.out.println(this.arena);
+       /*  System.out.println(this.arena);
         System.out.println("Carta: " + getCarta1());
         Arena arena = getArena();
         ArrayList<ACarta> mao = arena.cartasNaMaoJogadores(1);
@@ -184,8 +184,8 @@ public class SceneController {
         } else {
             //todo
         }
-        
         ArrayList<ACartaTropa> mesa = arena.cartasNoCampoJogadores(1);
+        */
 /*         System.out.println(mesa);
         System.out.println("mao: " + mao);
         System.out.println(retorno); */
@@ -194,7 +194,7 @@ public class SceneController {
 
         int initialY = 250;
         int initialX = 200;
-        for (int i = 0; i < mesa.size(); i++) {
+       /*  for (int i = 0; i < mesa.size(); i++) {
             ImageView img = new ImageView(mesa.get(i).getDirImage());
             img.setX(initialX);
             img.setY(initialY);
@@ -202,7 +202,7 @@ public class SceneController {
             img.setFitWidth(77);
             arenaWrapper.getChildren().add(img);
             initialX = initialX + 90;
-        }
+        } */
 
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
