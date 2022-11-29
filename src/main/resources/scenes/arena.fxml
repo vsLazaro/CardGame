@@ -10,14 +10,14 @@
 
 <VBox prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
   <children>
-    <AnchorPane fx:id="arenaWrapper" maxHeight="-1.0" maxWidth="-1.0" prefHeight="600.0" prefWidth="900.0"  VBox.vgrow="ALWAYS">
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="600.0" prefWidth="900.0" VBox.vgrow="ALWAYS">
          <children>
             <ImageView fitHeight="600.0" fitWidth="1000.0" layoutY="-1.0">
                <image>
                   <Image url="@assets/arena-horizontal.jpg" />
                </image>
             </ImageView>
-            <Button fx:id="botaoCentral" layoutX="432.0" layoutY="222.0" mnemonicParsing="false" onAction="#startGame" text="Continuar" />
+            <Button fx:id="botaoCentral" layoutX="473.0" layoutY="225.0" mnemonicParsing="false" onAction="#startGame" text="Continuar" />
             <ImageView fx:id="play2Card1" fitHeight="94.0" fitWidth="77.0" layoutX="64.0" layoutY="37.0">
                <image>
                   <Image url="@assets/carta-virada.jpg" />
@@ -48,6 +48,18 @@
                   <Image url="@assets/carta-virada.jpg" />
                </image>
             </ImageView>
+            <Text fx:id="Play1Card1Vida" fill="WHITE" layoutX="64.0" layoutY="505.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+            <Text fx:id="Play1Card1Dano" fill="WHITE" layoutX="63.0" layoutY="522.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+            <Text fx:id="Play1Card2Dano" fill="WHITE" layoutX="144.0" layoutY="522.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+            <Text fx:id="Play1Card2Vida" fill="WHITE" layoutX="145.0" layoutY="505.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+            <Text fx:id="Play1Card3Vida" fill="WHITE" layoutX="237.0" layoutY="505.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+            <Text fx:id="Play1Card3Dano" fill="WHITE" layoutX="236.0" layoutY="522.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+            <Text fx:id="Play2Card1Dano" fill="WHITE" layoutX="75.0" layoutY="174.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+            <Text fx:id="Play2Card1Vida" fill="WHITE" layoutX="75.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+            <Text fx:id="Play2Card2Vida" fill="WHITE" layoutX="161.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+            <Text fx:id="Play2Card2Dano" fill="WHITE" layoutX="161.0" layoutY="174.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+            <Text fx:id="Play2Card3Dano" fill="WHITE" layoutX="247.0" layoutY="174.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+            <Text fx:id="Play2Card3Vida" fill="WHITE" layoutX="247.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" />
          </children>
     </AnchorPane>
   </children>

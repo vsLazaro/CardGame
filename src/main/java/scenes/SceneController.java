@@ -118,14 +118,16 @@ public class SceneController {
 
         stage.setScene(scene);
         stage.show();
-        Text card1Vida = new Text("Vida: ");
-        Text card2Vida = new Text("Vida: ");
-        Text card3Vida = new Text("Vida: ");
-        Text card1Dano = new Text("Dano: ");
-        Text card2Dano = new Text("Dano: ");
-        Text card3Dano = new Text("Dano: ");
 
+        Text card1Vida = (Text) parent.lookup("#Play1Card1Vida");
+        Text card2Vida = (Text) parent.lookup("#Play1Card2Vida");
+        Text card3Vida = (Text) parent.lookup("#Play1Card3Vida");
+        Text card1Dano = (Text) parent.lookup("#Play1Card1Dano");
+        Text card2Dano = (Text) parent.lookup("#Play1Card2Dano");
+        Text card3Dano = (Text) parent.lookup("#Play1Card3Dano");
+        
         for (int i = 0; i < listaCartas.size(); i++) {
+            System.out.println(listaCartas.get(i));
             switch (i) {
                 case 0:
                     if (listaCartas.get(i) instanceof ACartaTropa) {
@@ -146,8 +148,8 @@ public class SceneController {
                         ACartaTropa cartaTropa = (ACartaTropa) listaCartas.get(i);
                         System.out.println(cartaTropa);
                         card2.setImage(new Image(cartaTropa.getDirImage()));
-                        card2Vida.setText("Vida: X" + String.valueOf(cartaTropa.getVida()));
-                        card2Dano.setText("Dano: X" + String.valueOf(cartaTropa.getDano()));
+                        card2Vida.setText("Vida: " + String.valueOf(cartaTropa.getVida()));
+                        card2Dano.setText("Dano: " + String.valueOf(cartaTropa.getDano()));
                     } else {
                         ACartaFeitico cartaFeitico = (ACartaFeitico) listaCartas.get(i);
                         card2.setImage(new Image(cartaFeitico.getDirImage()));
@@ -160,8 +162,8 @@ public class SceneController {
                         ACartaTropa cartaTropa = (ACartaTropa) listaCartas.get(i);
                         System.out.println(cartaTropa);
                         card3.setImage(new Image(cartaTropa.getDirImage()));
-                        card3Vida.setText("Vida: X" + String.valueOf(cartaTropa.getVida()));
-                        card3Dano.setText("Dano: X" + String.valueOf(cartaTropa.getDano()));
+                        card3Vida.setText("Vida: " + String.valueOf(cartaTropa.getVida()));
+                        card3Dano.setText("Dano: " + String.valueOf(cartaTropa.getDano()));
                     } else {
                         ACartaFeitico cartaFeitico = (ACartaFeitico) listaCartas.get(i);
                         card3.setImage(new Image(cartaFeitico.getDirImage()));
@@ -173,14 +175,6 @@ public class SceneController {
                     break;
             }
         }
-
-        AnchorPane arenaWrapper = (AnchorPane) parent.lookup("#arenaWrapper");
-        arenaWrapper.getChildren().add(card1Vida);
-        arenaWrapper.getChildren().add(card2Vida);
-        arenaWrapper.getChildren().add(card3Vida);
-        arenaWrapper.getChildren().add(card1Dano);
-        arenaWrapper.getChildren().add(card2Dano);
-        arenaWrapper.getChildren().add(card3Dano);
     }
 
     /*
