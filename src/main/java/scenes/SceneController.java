@@ -93,7 +93,6 @@ public class SceneController {
         String namePlayer2Value = namePlayer2.getText();
         this.jogo = new Jogo(namePlayer1Value, namePlayer2Value);
         System.out.println("Passei");
-        
 
         FXMLLoader root = new FXMLLoader(getClass().getResource("arena.fxml"));
         root.setController(new SceneController(jogo));
@@ -101,6 +100,21 @@ public class SceneController {
         scene = new Scene(root.load());
         stage.setScene(scene);
         stage.show();
+    }
+    
+    public void startGame(ActionEvent event) throws IOException {
+       /*  String namePlayer1Value = namePlayer1.getText();
+        String namePlayer2Value = namePlayer2.getText();
+        this.jogo = new Jogo(namePlayer1Value, namePlayer2Value); */
+        System.out.println("pegar baralho");
+        
+/* 
+        FXMLLoader root = new FXMLLoader(getClass().getResource("arena.fxml"));
+        root.setController(new SceneController(jogo));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root.load());
+        stage.setScene(scene);
+        stage.show(); */
     }
 
     public void chooseCard(ActionEvent event) throws IOException {
