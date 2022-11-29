@@ -127,7 +127,8 @@ public class SceneController {
         Text card3Dano = (Text) parent.lookup("#Play1Card3Dano");
         
         for (int i = 0; i < listaCartas.size(); i++) {
-            System.out.println(listaCartas.get(i));
+            System.out.println(listaCartas.get(i).getNome());
+            System.out.println(listaCartas.get(i).getDirImage());
             switch (i) {
                 case 0:
                     if (listaCartas.get(i) instanceof ACartaTropa) {
