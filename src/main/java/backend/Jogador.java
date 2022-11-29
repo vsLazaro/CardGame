@@ -26,6 +26,9 @@ public class Jogador {
         this.atacar = true;
     }
 
+    public String getNome() {
+        return nome;
+    }
 
     private void popularBaralho(ArrayList<ACarta> listaCartas) {
         for (ACarta carta : listaCartas) {
@@ -46,7 +49,7 @@ public class Jogador {
     }
 
     private void popularMao() {
-        for(int i = 0; i < 2 ; i++) {
+        for(int i = 0; i <= 2 ; i++) {
             this.mao.add(this.baralho.poll());
         }
     }

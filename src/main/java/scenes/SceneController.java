@@ -9,6 +9,7 @@ import javax.imageio.ImageIO;
 
 import backend.Aereo;
 import backend.Arena;
+import backend.Jogo;
 import backend.Tanque;
 import backend.Terrestre;
 import backend.abstracts.ACarta;
@@ -50,44 +51,9 @@ public class SceneController {
     private ImageView card3;
 
     int playerId = 0;
-    Arena arena = new Arena("test1", "test2");
 
-    ACartaTropa cartaTropa1;
-    ACartaTropa cartaTropa2;
-    ACartaFeitico cartaFeitico1;
-    ACartaFeitico cartaFeitico2;
-
-    private void setCartaTropa1(ACartaTropa cartaTropa) {
-        this.cartaTropa1 = cartaTropa;
-    }
-
-    private void setCartaTropa2(ACartaTropa cartaTropa) {
-        this.cartaTropa2 = cartaTropa;
-    }
-
-    private void setCartaFeitico1(ACartaFeitico cartaFeitico) {
-        this.cartaFeitico1 = cartaFeitico;
-    }
-
-    private void setCartaFeitico2(ACartaFeitico cartaFeitico) {
-        this.cartaFeitico2 = cartaFeitico;
-    }
-
-    public ACartaFeitico getCartaFeitico1() {
-        return cartaFeitico1;
-    }
-
-    public ACartaFeitico getCartaFeitico2() {
-        return cartaFeitico2;
-    }
-
-    public ACartaTropa getCartaTropa1() {
-        return cartaTropa1;
-    }
-
-    public ACartaTropa getCartaTropa2() {
-        return cartaTropa2;
-    }
+    Jogo jogo;
+    
 
     private void setCurrentPlayer(int rodada) {
         playerId = (rodada % 2) + 1;
@@ -97,12 +63,12 @@ public class SceneController {
         return playerId;
     }
 
-    private void createArena(String namePlayer1, String namePlayer2) {
-        arena = new Arena(namePlayer1, namePlayer2);
+    public SceneController(Jogo jogo) {
+        this.jogo = jogo;
     }
 
-    private Arena getArena() {
-        return arena;
+    private Jogo getJogo() {
+        return jogo;
     }
 
     public void switchToScene1(ActionEvent event) throws IOException {
@@ -114,9 +80,10 @@ public class SceneController {
     }
 
     public void switchToScene2(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("nomeJogadores.fxml"));
+        FXMLLoader root = new FXMLLoader(getClass().getResource("nomeJogadores.fxml"));
+        root.setController(new SceneController(arena));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
+        scene = new Scene(root.load());
         stage.setScene(scene);
         stage.show();
     }
@@ -124,37 +91,41 @@ public class SceneController {
     public void enterGame(ActionEvent event) throws IOException {
         String namePlayer1Value = namePlayer1.getText();
         String namePlayer2Value = namePlayer2.getText();
-        createArena(namePlayer1Value, namePlayer2Value);
+        this.jogo = new Jogo(namePlayer1Value, namePlayer2Value);
+        System.out.println("Passei");
+        
 
-        Parent root = FXMLLoader.load(getClass().getResource("player1Turn.fxml"));
+        FXMLLoader root = new FXMLLoader(getClass().getResource("player1Turn.fxml"));
+        root.setController(new SceneController(jogo));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
+        scene = new Scene(root.load());
         stage.setScene(scene);
         stage.show();
     }
 
     public void chooseCard(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("seeHand.fxml"));
-        ImageView card1 = (ImageView) root.lookup("#card1");
-        Text vidaCard1 = (Text) root.lookup("#vidaCard1");
-        Text danoCard1 = (Text) root.lookup("#danoCard1");
-        Text vidaCard2 = (Text) root.lookup("#vidaCard2");
-        Text danoCard2 = (Text) root.lookup("#danoCard2");
+        FXMLLoader root = new FXMLLoader(getClass().getResource("seeHand.fxml"));
+        root.setController(new SceneController(jogo));
+        Parent parent = (Parent)root.load();
+        ImageView card1 = (ImageView) parent.lookup("#card1");
+        Text vidaCard1 = (Text) parent.lookup("#vidaCard1");
+        Text danoCard1 = (Text) parent.lookup("#danoCard1");
+        Text vidaCard2 = (Text) parent.lookup("#vidaCard2");
+        Text danoCard2 = (Text) parent.lookup("#danoCard2");
 
-        ImageView card2 = (ImageView) root.lookup("#card2");
+        ImageView card2 = (ImageView) parent.lookup("#card2");
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
-        scene = new Scene(root);
+        scene = new Scene(parent);
 
         stage.setScene(scene);
         stage.show();
-
+        System.out.println(this.jogo);
         int numRodadas = 0;
         if (numRodadas < 10) {
             setCurrentPlayer(numRodadas);
 
-            Arena arena = getArena();
-            ArrayList<ACarta> mao = arena.cartasNaMaoJogadores(getCurrentPlayer());
+            ArrayList<ACarta> mao = jogo.cartasNaMaoJogadores(getCurrentPlayer());
 
             for (int i = 0; i < mao.size(); i++) {
                 switch (i) {
@@ -165,14 +136,14 @@ public class SceneController {
                             card1.setImage(new Image(cartaTropa.getDirImage()));
                             vidaCard1.setText("Vida: X" + String.valueOf(cartaTropa.getVida()));
                             danoCard1.setText("Dano: X" /* + String.valueOf(cartaAereo.get()) */);
-                            setCartaTropa1(cartaTropa);
-                            System.out.println(getCartaTropa1());
+                            setCarta1(cartaTropa);
+                            System.out.println(getCarta1());
                         } else {
                             ACartaFeitico cartaFeitico = (ACartaFeitico) mao.get(i);
                             card1.setImage(new Image(cartaFeitico.getDirImage()));
                             vidaCard1.setText("Efeito: " + cartaFeitico.getEfeito());
                             danoCard1.setText("Valor Efeito: " + String.valueOf(cartaFeitico.getValorEfeito()));
-                            setCartaFeitico1(cartaFeitico);
+                            setCarta1(cartaFeitico);
                         }
                         break;
 
@@ -182,13 +153,13 @@ public class SceneController {
                             card2.setImage(new Image(cartaTropa.getDirImage()));
                             vidaCard2.setText("Vida: X" + String.valueOf(cartaTropa.getVida()));
                             danoCard2.setText("Dano: X" /* + String.valueOf(cartaAereo.get()) */);
-                            setCartaTropa2(cartaTropa);
+                            setCarta2(cartaTropa);
                         } else {
                             ACartaFeitico cartaFeitico = (ACartaFeitico) mao.get(i);
                             card2.setImage(new Image(cartaFeitico.getDirImage()));
                             vidaCard2.setText("Efeito: " + cartaFeitico.getEfeito());
                             danoCard2.setText("Valor Efeito: " + String.valueOf(cartaFeitico.getValorEfeito()));
-                            setCartaFeitico2(cartaFeitico);
+                            setCarta2(cartaFeitico);
                         }
                         break;
 
@@ -204,17 +175,22 @@ public class SceneController {
 
     }
     public void selectCard1(javafx.scene.input.MouseEvent event) throws IOException {
+        System.out.println(this.arena);
+        System.out.println("Carta: " + getCarta1());
         Arena arena = getArena();
         ArrayList<ACarta> mao = arena.cartasNaMaoJogadores(1);
-        boolean retorno = arena.inserirCarta(1, getCartaTropa1());
+        if(getCarta1() instanceof ACartaTropa) {
+            boolean retorno = arena.inserirCarta(1, (ACartaTropa)getCarta1());
+        } else {
+            //todo
+        }
+        
         ArrayList<ACartaTropa> mesa = arena.cartasNoCampoJogadores(1);
 /*         System.out.println(mesa);
         System.out.println("mao: " + mao);
         System.out.println(retorno); */
         Parent root = FXMLLoader.load(getClass().getResource("attack2.fxml"));
         AnchorPane arenaWrapper = (AnchorPane) root.lookup("#arenaWrapper");
-
-        System.out.println(getCartaTropa1());
 
         int initialY = 250;
         int initialX = 200;
