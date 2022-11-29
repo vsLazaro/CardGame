@@ -10,7 +10,7 @@
 
 <VBox prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
   <children>
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="600.0" prefWidth="900.0" VBox.vgrow="ALWAYS">
+    <AnchorPane fx:id="arenaWrapper" maxHeight="-1.0" maxWidth="-1.0" prefHeight="600.0" prefWidth="900.0" VBox.vgrow="ALWAYS">
          <children>
             <ImageView fitHeight="600.0" fitWidth="1000.0" layoutY="-1.0">
                <image>
