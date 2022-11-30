@@ -145,7 +145,6 @@ public class SceneController {
         for (int i = 0; i < mesaJogador1.size(); i++) {
             ImageView img = new ImageView(mesaJogador1.get(i).getDirImage());
             Text Vida = new Text(String.valueOf("Vida: " + mesaJogador1.get(i).getVida()));
-            Text Dano = new Text(String.valueOf("Dano: " + mesaJogador1.get(i).getDano()));
             Vida.setY(415);
             Vida.setX(initialX);
 
@@ -168,7 +167,6 @@ public class SceneController {
         for (int i = 0; i < mesaJogador2.size(); i++) {
             ImageView img = new ImageView(mesaJogador2.get(i).getDirImage());
             Text Vida = new Text(String.valueOf("Vida: " + mesaJogador2.get(i).getVida()));
-            Text Dano = new Text(String.valueOf("Dano: " + mesaJogador2.get(i).getDano()));
             Vida.setY(290);
             Vida.setX(initialX2);
            
