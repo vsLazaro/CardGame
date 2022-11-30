@@ -140,7 +140,7 @@ public class SceneController {
 
         int initialY = 305;
         int initialX = 350;
-      
+
         ArrayList<ACartaTropa> mesaJogador1 = jogo.getCampoJogador1();
         for (int i = 0; i < mesaJogador1.size(); i++) {
             ImageView img = new ImageView(mesaJogador1.get(i).getDirImage());
@@ -148,18 +148,15 @@ public class SceneController {
             Text Dano = new Text(String.valueOf("Dano: " + mesaJogador1.get(i).getDano()));
             Vida.setY(415);
             Vida.setX(initialX);
-            Dano.setY(430);
-            Dano.setX(initialX);
+
             img.setX(initialX);
             img.setY(initialY);
             img.setFitHeight(96);
             img.setFitWidth(77);
-            Dano.setFill(Color.WHITE);
+
             Vida.setFill(Color.WHITE);
             arenaWrapper.getChildren().add(img);
             arenaWrapper.getChildren().add(Vida);
-            arenaWrapper.getChildren().add(Dano);
-            listaTextos.add(Dano);
             listaTextos.add(Vida);
             listaImagensMesa.add(img);
             initialX = initialX + 90;
@@ -174,19 +171,15 @@ public class SceneController {
             Text Dano = new Text(String.valueOf("Dano: " + mesaJogador2.get(i).getDano()));
             Vida.setY(290);
             Vida.setX(initialX2);
-            Dano.setY(305);
-            Dano.setX(initialX2);
+           
             img.setX(initialX2);
             img.setY(initialY2);
             img.setFitHeight(96);
             img.setFitWidth(77);
-            Dano.setFill(Color.WHITE);
             Vida.setFill(Color.WHITE);
 
             arenaWrapper.getChildren().add(img);
             arenaWrapper.getChildren().add(Vida);
-            arenaWrapper.getChildren().add(Dano);
-            listaTextos.add(Dano);
             listaTextos.add(Vida);
             listaImagensMesa.add(img);
             initialX2 = initialX2 + 90;
