@@ -18,36 +18,6 @@
                </image>
             </ImageView>
             <Button fx:id="botaoCentral" layoutX="469.0" layoutY="275.0" mnemonicParsing="false" onAction="#startGame" text="Começar" />
-            <ImageView fx:id="play2Card1" fitHeight="94.0" fitWidth="77.0" layoutX="277.0" layoutY="43.0">
-               <image>
-                  <Image url="@assets/carta-virada.jpg" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="play2Card2" fitHeight="94.0" fitWidth="77.0" layoutX="462.0" layoutY="43.0">
-               <image>
-                  <Image url="@assets/carta-virada.jpg" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="play2Card3" fitHeight="94.0" fitWidth="77.0" layoutX="646.0" layoutY="43.0">
-               <image>
-                  <Image url="@assets/carta-virada.jpg" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="play1Card3" fitHeight="94.0" fitWidth="77.0" layoutX="646.0" layoutY="445.0">
-               <image>
-                  <Image url="@assets/carta-virada.jpg" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="play1Card2" fitHeight="94.0" fitWidth="77.0" layoutX="462.0" layoutY="445.0">
-               <image>
-                  <Image url="@assets/carta-virada.jpg" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="play1Card1" fitHeight="94.0" fitWidth="77.0" layoutX="277.0" layoutY="445.0">
-               <image>
-                  <Image url="@assets/carta-virada.jpg" />
-               </image>
-            </ImageView>
          </children>
     </AnchorPane>
   </children>

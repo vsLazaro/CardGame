@@ -130,7 +130,7 @@ public class SceneController {
         int initialX = 350;
         /*TODO:
          * Mostrar a vida e o dano das cartas que estão no campo
-          */
+          */        
         ArrayList<ACartaTropa> mesaJogador1 = jogo.getCampoJogador1();
         for (int i = 0; i < mesaJogador1.size(); i++) {
             ImageView img = new ImageView(mesaJogador1.get(i).getDirImage());
@@ -157,102 +157,192 @@ public class SceneController {
             listaImagensMesa.add(img);
             initialX2 = initialX2 + 90;
         }
-        int initialImgMaoY;
-        int initialImgMaoX;
-        int initialTextMaoX;
+        
+        int initialImgMaoY1 = 445;
+        int initialImgMaoX1 = 277;
+        int initialTextMaoX1 = 280;
+        int cardVidaY1 = 552;
+        int cardDanoY1 = 569;
+        int playerTimeX1 = 40;
+        int playerTimeY1 = 565;
+
         int somar = 185;
-        int cardVidaY;
-        int cardDanoY;
-        int playerTimeX;
-        int playerTimeY;
 
+        int initialImgMaoY2 = 43;
+        int initialImgMaoX2 = 277;
+        int initialTextMaoX2 = 280;
+        int cardVidaY2 = 149;
+        int cardDanoY2 = 166;
+        int playerTimeX2 = 758;
+        int playerTimeY2 = 52;
         if (jogo.getRodadas() % 2 != 0) {
-            initialImgMaoY = 445;
-            initialImgMaoX = 277;
-            initialTextMaoX = 280;
-            cardVidaY = 552;
-            cardDanoY = 569;
-            playerTimeX = 40;
-            playerTimeY = 565;
-        } else {
-            initialImgMaoY = 43;
-            initialImgMaoX = 277;
-            initialTextMaoX = 280;
-            cardVidaY = 149;
-            cardDanoY = 166;
-            playerTimeX = 758;
-            playerTimeY = 52;
-        }
-        ArrayList<ACarta> listaCartas = jogo.getMaoJogador();
-        for (int i = 0; i < listaCartas.size(); i++) {
-            ImageView img = new ImageView(listaCartas.get(i).getDirImage());
-            img.setX(initialImgMaoX);
-            img.setY(initialImgMaoY);
-            img.setFitHeight(96);
-            img.setFitWidth(77);
-
-            
-            initialImgMaoX = initialImgMaoX + somar;
-
-            Text cardVida = new Text();
-            cardVida.setX(initialTextMaoX);
-            cardVida.setY(cardVidaY);
-
-            Text cardDano = new Text();
-            cardDano.setX(initialTextMaoX);
-            cardDano.setY(cardDanoY);
-
-            Text playerTime = new Text();
-            playerTime.setX(playerTimeX);
-            playerTime.setY(playerTimeY);
-
-            initialTextMaoX = initialTextMaoX + somar;
-
-            
-            if (listaCartas.get(i) instanceof ACartaTropa) {
-                ACartaTropa cartaTropa = (ACartaTropa) listaCartas.get(i);
-                img.setImage(new Image(cartaTropa.getDirImage()));
-                img.setOnMouseClicked(mouseevent -> {
-                    if(jogo.jogarCarta(cartaTropa)) {
-                        jogo.atacar();
-                        jogo.proximoRound();
-                    }
-                    limpaImagesList();
-                    this.jogo();
-                });
-                cardVida.setText("Vida: " + String.valueOf(cartaTropa.getVida()));
-                cardDano.setText("Dano: " + String.valueOf(cartaTropa.getDano()));
-
-            } else {
-                ACartaFeitico cartaFeitico = (ACartaFeitico) listaCartas.get(i);
-                img.setImage(new Image(cartaFeitico.getDirImage()));
-                cardVida.setText("Efeito: " + cartaFeitico.getEfeito());
-                cardDano.setText("Valor Efeito: " + String.valueOf(cartaFeitico.getValorEfeito()));
-                img.setOnMouseClicked(mouseevent -> {
-                    System.out.println("feitiço");
-            
-                    jogo.jogarCarta(cartaFeitico);
-                    jogo.proximoRound();
-                    limpaImagesList();
-                    this.jogo();
-                });
+            ArrayList<ACarta> cartasBrancas = jogo.getMaoJogador2();
+            for(int i=0; i < cartasBrancas.size(); i++) {
+                ImageView img = new ImageView("/scenes/assets/carta-virada.jpg");
+                img.setX(initialImgMaoX2);
+                img.setY(initialImgMaoY2);
+                img.setFitHeight(96);
+                img.setFitWidth(77);
+                initialImgMaoX2 = initialImgMaoX2 + somar;
+                listaImagensMesa.add(img);
+                arenaWrapper.getChildren().add(img);
             }
 
-            cardVida.setFill(Color.WHITE);
-            cardDano.setFill(Color.WHITE);
-            playerTime.setFill(Color.WHITE);
-            playerTime.setFont(Font.font(24));
-            playerTime.setText("Sua vez: " + jogo.getNomeJogador());
+            ArrayList<ACarta> listaCartas = jogo.getMaoJogador();
+            for (int i = 0; i < listaCartas.size(); i++) {
+                ImageView img = new ImageView(listaCartas.get(i).getDirImage());
+                img.setX(initialImgMaoX1);
+                img.setY(initialImgMaoY1);
+                img.setFitHeight(96);
+                img.setFitWidth(77);
 
-            listaTextos.add(cardVida);
-            listaTextos.add(cardDano);
-            listaTextos.add(playerTime);
-            listaImagensMesa.add(img);
-            
-            arenaWrapper.getChildren().add(img);
-            arenaWrapper.getChildren().add(cardVida);
-            arenaWrapper.getChildren().add(cardDano);
-            arenaWrapper.getChildren().add(playerTime);
+                
+                initialImgMaoX1 = initialImgMaoX1 + somar;
+
+                Text cardVida = new Text();
+                cardVida.setX(initialTextMaoX1);
+                cardVida.setY(cardVidaY1);
+
+                Text cardDano = new Text();
+                cardDano.setX(initialTextMaoX1);
+                cardDano.setY(cardDanoY1);
+
+                Text playerTime = new Text();
+                playerTime.setX(playerTimeX1);
+                playerTime.setY(playerTimeY1);
+
+                initialTextMaoX1 = initialTextMaoX1 + somar;
+
+                
+                if (listaCartas.get(i) instanceof ACartaTropa) {
+                    ACartaTropa cartaTropa = (ACartaTropa) listaCartas.get(i);
+                    img.setImage(new Image(cartaTropa.getDirImage()));
+                    img.setOnMouseClicked(mouseevent -> {
+                        if(jogo.jogarCarta(cartaTropa)) {
+                            jogo.atacar();
+                            jogo.proximoRound();
+                        }
+                        limpaImagesList();
+                        this.jogo();
+                    });
+                    cardVida.setText("Vida: " + String.valueOf(cartaTropa.getVida()));
+                    cardDano.setText("Dano: " + String.valueOf(cartaTropa.getDano()));
+
+                } else {
+                    ACartaFeitico cartaFeitico = (ACartaFeitico) listaCartas.get(i);
+                    img.setImage(new Image(cartaFeitico.getDirImage()));
+                    cardVida.setText("Efeito: " + cartaFeitico.getEfeito());
+                    cardDano.setText("Valor Efeito: " + String.valueOf(cartaFeitico.getValorEfeito()));
+                    img.setOnMouseClicked(mouseevent -> {
+                        System.out.println("feitiço");
+                
+                        jogo.jogarCarta(cartaFeitico);
+                        jogo.proximoRound();
+                        limpaImagesList();
+                        this.jogo();
+                    });
+                }
+
+                cardVida.setFill(Color.WHITE);
+                cardDano.setFill(Color.WHITE);
+                playerTime.setFill(Color.WHITE);
+                playerTime.setFont(Font.font(24));
+                playerTime.setText("Sua vez: " + jogo.getNomeJogador());
+
+                listaTextos.add(cardVida);
+                listaTextos.add(cardDano);
+                listaTextos.add(playerTime);
+                listaImagensMesa.add(img);
+                
+                arenaWrapper.getChildren().add(img);
+                arenaWrapper.getChildren().add(cardVida);
+                arenaWrapper.getChildren().add(cardDano);
+                arenaWrapper.getChildren().add(playerTime);
+            }    
+        } else {
+            ArrayList<ACarta> cartasBrancas = jogo.getMaoJogador1();
+            for(int i=0; i < cartasBrancas.size(); i++) {
+                ImageView img = new ImageView("/scenes/assets/carta-virada.jpg");
+                img.setX(initialImgMaoX1);
+                img.setY(initialImgMaoY1);
+                img.setFitHeight(96);
+                img.setFitWidth(77);
+                initialImgMaoX1 = initialImgMaoX1 + somar;
+                listaImagensMesa.add(img);
+                arenaWrapper.getChildren().add(img);
+            }
+
+            ArrayList<ACarta> listaCartas = jogo.getMaoJogador();
+            for (int i = 0; i < listaCartas.size(); i++) {
+                ImageView img = new ImageView(listaCartas.get(i).getDirImage());
+                img.setX(initialImgMaoX2);
+                img.setY(initialImgMaoY2);
+                img.setFitHeight(96);
+                img.setFitWidth(77);
+
+                
+                initialImgMaoX2 = initialImgMaoX2 + somar;
+
+                Text cardVida = new Text();
+                cardVida.setX(initialTextMaoX2);
+                cardVida.setY(cardVidaY2);
+
+                Text cardDano = new Text();
+                cardDano.setX(initialTextMaoX2);
+                cardDano.setY(cardDanoY2);
+
+                Text playerTime = new Text();
+                playerTime.setX(playerTimeX2);
+                playerTime.setY(playerTimeY2);
+
+                initialTextMaoX2 = initialTextMaoX2 + somar;
+
+                
+                if (listaCartas.get(i) instanceof ACartaTropa) {
+                    ACartaTropa cartaTropa = (ACartaTropa) listaCartas.get(i);
+                    img.setImage(new Image(cartaTropa.getDirImage()));
+                    img.setOnMouseClicked(mouseevent -> {
+                        if(jogo.jogarCarta(cartaTropa)) {
+                            jogo.atacar();
+                            jogo.proximoRound();
+                        }
+                        limpaImagesList();
+                        this.jogo();
+                    });
+                    cardVida.setText("Vida: " + String.valueOf(cartaTropa.getVida()));
+                    cardDano.setText("Dano: " + String.valueOf(cartaTropa.getDano()));
+
+                } else {
+                    ACartaFeitico cartaFeitico = (ACartaFeitico) listaCartas.get(i);
+                    img.setImage(new Image(cartaFeitico.getDirImage()));
+                    cardVida.setText("Efeito: " + cartaFeitico.getEfeito());
+                    cardDano.setText("Valor Efeito: " + String.valueOf(cartaFeitico.getValorEfeito()));
+                    img.setOnMouseClicked(mouseevent -> {
+                        System.out.println("feitiço");
+                
+                        jogo.jogarCarta(cartaFeitico);
+                        jogo.proximoRound();
+                        limpaImagesList();
+                        this.jogo();
+                    });
+                }
+
+                cardVida.setFill(Color.WHITE);
+                cardDano.setFill(Color.WHITE);
+                playerTime.setFill(Color.WHITE);
+                playerTime.setFont(Font.font(24));
+                playerTime.setText("Sua vez: " + jogo.getNomeJogador());
+
+                listaTextos.add(cardVida);
+                listaTextos.add(cardDano);
+                listaTextos.add(playerTime);
+                listaImagensMesa.add(img);
+                
+                arenaWrapper.getChildren().add(img);
+                arenaWrapper.getChildren().add(cardVida);
+                arenaWrapper.getChildren().add(cardDano);
+                arenaWrapper.getChildren().add(playerTime);
+            }    
         }
 
         stage.show();

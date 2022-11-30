@@ -42,6 +42,14 @@ public class Jogo {
         return this.arena.getJogador2().getCartasCampo();
     }
 
+    public ArrayList<ACarta> getMaoJogador1() {
+        return this.arena.getJogador1().getCartaMao();
+    }
+
+    public ArrayList<ACarta> getMaoJogador2() {
+        return this.arena.getJogador2().getCartaMao();
+    }
+
     public ArrayList<ACartaTropa> getCampoJogador1() {
         return this.arena.getJogador1().getCartasCampo();
     }
