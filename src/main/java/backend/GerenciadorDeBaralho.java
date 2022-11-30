@@ -49,29 +49,29 @@ public class GerenciadorDeBaralho {
     {
         ArrayList<ACartaTropa> tropas = new ArrayList<ACartaTropa>();
         ACartaTropa carta;
-        carta = new Tanque("Lazarento", "tanque", "/scenes/assets/lazarento.jpg", 93, 10);
+        carta = new Tanque("Lazarento", "tanque", "/scenes/assets/lazarento.jpg", 9, 1);
         tropas.add(carta);
-        carta = new Tanque("Gigante", "tanque", "/scenes/assets/gigante.jpg", 77, 15);
+        carta = new Tanque("Gigante", "tanque", "/scenes/assets/gigante.jpg", 8, 1);
         tropas.add(carta);
-        carta = new Tanque("Esqueletasso", "tanque", "/scenes/assets/esqueleto-gigante.jpg", 86, 17);
+        carta = new Tanque("Esqueletasso", "tanque", "/scenes/assets/esqueleto-gigante.jpg", 8, 1);
         tropas.add(carta);
-        carta = new Terrestre("Corredor", "terrestre", "/scenes/assets/esqueleto-gigante.jpg", 50, 22);
+        carta = new Terrestre("Corredor", "terrestre", "/scenes/assets/corredor.jpg", 4, 4);
         tropas.add(carta);
-        carta = new Terrestre("Cavaleiro", "terrestre", "/scenes/assets/cavaleiro.jpg", 57, 25);
+        carta = new Terrestre("Cavaleiro", "terrestre", "/scenes/assets/cavaleiro.jpg", 4, 4);
         tropas.add(carta);
-        carta = new Terrestre("Brendida", "terrestre", "/scenes/assets/brendida.jpg", 45, 31);
+        carta = new Terrestre("Brendida", "terrestre", "/scenes/assets/brendida.jpg", 4, 8);
         tropas.add(carta);
-        carta = new Aereo("Dragonoide", "aereo", "/scenes/assets/bebe-dragao.jpg", 52, 20);
+        carta = new Aereo("Dragonoide", "aereo", "/scenes/assets/bebe-dragao.jpg", 4, 4);
         tropas.add(carta);
-        carta = new Aereo("Balao", "aereo", "/scenes/assets/balao.jpg", 60, 15);
+        carta = new Aereo("Balao", "aereo", "/scenes/assets/balao.jpg", 4, 4);
         tropas.add(carta);
-        carta = new Aereo("Conservo", "aereo", "/scenes/assets/conservo.jpg", 50, 28);
+        carta = new Aereo("Conservo", "aereo", "/scenes/assets/conservo.jpg", 4, 8);
         tropas.add(carta);
-        carta = new AntiAereo("Mazzomago", "antiaereo", "/scenes/assets/mazzomago.jpeg", 35, 40);
+        carta = new AntiAereo("Mazzomago", "antiaereo", "/scenes/assets/mazzomago.jpeg", 4, 8);
         tropas.add(carta);
-        carta = new AntiAereo("Arqueira", "antiaereo", "/scenes/assets/arqueira.jpg", 45, 35);
+        carta = new AntiAereo("Arqueira", "antiaereo", "/scenes/assets/arqueira.jpg", 4, 4);
         tropas.add(carta);
-        carta = new AntiAereo("Mosqueteira", "antiaereo", "/scenes/assets/mosqueteira.jpg", 43, 38);
+        carta = new AntiAereo("Mosqueteira", "antiaereo", "/scenes/assets/mosqueteira.jpg", 4, 4);
         tropas.add(carta);
         return tropas;
     }
@@ -80,11 +80,11 @@ public class GerenciadorDeBaralho {
     {
         ArrayList<ACartaFeitico> feitico = new ArrayList<ACartaFeitico>(); 
         ACartaFeitico carta;
-        carta = new Feitico("Bola de fogo", "feitico", "/scenes/assets/bola-de-fogo.jpg", "dano", 20);
+        carta = new Feitico("Bola de fogo", "feitico", "/scenes/assets/bola-de-fogo.jpg", "dano", 10);
         feitico.add(carta);
-        carta = new Feitico("Cura", "feitico", "/scenes/assets/cura.jpg", "cura", 20);
+        carta = new Feitico("Cura", "feitico", "/scenes/assets/cura.jpg", "cura", 1);
         feitico.add(carta);
-        carta = new Feitico("Bolzificação", "feitico", "adefinir", "bolzifica", 10);
+        carta = new Feitico("Bolzificação", "feitico", "/scenes/assets/bolzificacao.jpg", "bolzificar", 2);
         feitico.add(carta);
         return feitico;
     }

@@ -13,10 +13,11 @@ public class App extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("initialScreen.fxml"));
+        fxmlLoader.setController(new SceneController(null));
         Parent root = fxmlLoader.load();
         Scene tela = new Scene(root);
         tela.getStylesheets().add(getClass().getResource("homeStyles.css").toExternalForm());
-        primaryStage.setTitle("tela login");
+        primaryStage.setTitle("jogo");
         primaryStage.setScene(tela);
         primaryStage.show();
     }

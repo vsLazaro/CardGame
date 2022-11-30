@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<VBox prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+  <children>
+    <AnchorPane fx:id="arenaWrapper" maxHeight="-1.0" maxWidth="-1.0" prefHeight="600.0" prefWidth="900.0" VBox.vgrow="ALWAYS">
+         <children>
+            <ImageView fitHeight="604.0" fitWidth="916.0">
+               <image>
+                  <Image url="@assets/blue-background.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="138.0" fitWidth="137.0" layoutX="389.0" layoutY="302.0">
+               <image>
+                  <Image url="@assets/confete.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="botaoCentral" layoutX="50.0" layoutY="275.0" mnemonicParsing="false" onAction="#switchToScene1" text="Recomeçar jogo" />
+            <Text fx:id="nomeGanhador" fill="WHITE" layoutX="327.0" layoutY="258.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Jogador X ganhou!">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Text>
+         </children>
+    </AnchorPane>
+  </children>
+</VBox>
