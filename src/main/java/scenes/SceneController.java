@@ -27,6 +27,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -162,22 +163,25 @@ public class SceneController {
         int somar = 185;
         int cardVidaY;
         int cardDanoY;
+        int playerTimeX;
+        int playerTimeY;
 
-        Text nomeJogador;
         if (jogo.getRodadas() % 2 != 0) {
             initialImgMaoY = 445;
             initialImgMaoX = 277;
             initialTextMaoX = 280;
             cardVidaY = 552;
             cardDanoY = 569;
-            nomeJogador = (Text) parent.lookup("#nomeJogador1");
+            playerTimeX = 40;
+            playerTimeY = 565;
         } else {
             initialImgMaoY = 43;
             initialImgMaoX = 277;
             initialTextMaoX = 280;
             cardVidaY = 149;
             cardDanoY = 166;
-            nomeJogador = (Text) parent.lookup("#nomeJogador2");
+            playerTimeX = 758;
+            playerTimeY = 52;
         }
         ArrayList<ACarta> listaCartas = jogo.getMaoJogador();
         for (int i = 0; i < listaCartas.size(); i++) {
@@ -197,6 +201,10 @@ public class SceneController {
             Text cardDano = new Text();
             cardDano.setX(initialTextMaoX);
             cardDano.setY(cardDanoY);
+
+            Text playerTime = new Text();
+            playerTime.setX(playerTimeX);
+            playerTime.setY(playerTimeY);
 
             initialTextMaoX = initialTextMaoX + somar;
 
@@ -232,14 +240,19 @@ public class SceneController {
 
             cardVida.setFill(Color.WHITE);
             cardDano.setFill(Color.WHITE);
+            playerTime.setFill(Color.WHITE);
+            playerTime.setFont(Font.font(24));
+            playerTime.setText("Sua vez: " + jogo.getNomeJogador());
+
             listaTextos.add(cardVida);
             listaTextos.add(cardDano);
+            listaTextos.add(playerTime);
             listaImagensMesa.add(img);
-            nomeJogador.setText("Sua vez: " + jogo.getNomeJogador());
             
             arenaWrapper.getChildren().add(img);
             arenaWrapper.getChildren().add(cardVida);
             arenaWrapper.getChildren().add(cardDano);
+            arenaWrapper.getChildren().add(playerTime);
         }
 
         stage.show();
