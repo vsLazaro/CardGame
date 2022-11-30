@@ -58,6 +58,15 @@ public class SceneController {
 
     AnchorPane arenaWrapper;
 
+    ArrayList<ImageView> listaImagensMesa = new ArrayList<>();
+
+    private void limpaImagesList() {
+        for (ImageView img : listaImagensMesa) {
+            arenaWrapper.getChildren().remove(img);
+        }
+
+    }
+
     private void setCurrentPlayer(int rodada) {
         playerId = (rodada % 2) + 1;
     }
@@ -114,13 +123,13 @@ public class SceneController {
 
     public void jogo() {
 
-        if(jogo.acabouJogo()) {
-            
+        if (jogo.acabouJogo()) {
+
         }
 
         int initialY = 320;
         int initialX = 350;
-        
+
         ArrayList<ACartaTropa> mesaJogador1 = jogo.getCampoJogador1();
         for (int i = 0; i < mesaJogador1.size(); i++) {
             ImageView img = new ImageView(mesaJogador1.get(i).getDirImage());
@@ -128,10 +137,11 @@ public class SceneController {
             img.setY(initialY);
             img.setFitHeight(96);
             img.setFitWidth(77);
+            img.setId("Player1cardId" + i);
             arenaWrapper.getChildren().add(img);
+            listaImagensMesa.add(img);
             initialX = initialX + 90;
         }
-
 
         int initialY2 = 200;
         int initialX2 = 350;
@@ -142,10 +152,13 @@ public class SceneController {
             img.setY(initialY2);
             img.setFitHeight(96);
             img.setFitWidth(77);
+            img.setId("Player2cardId" + i);
+
             arenaWrapper.getChildren().add(img);
+            listaImagensMesa.add(img);
             initialX2 = initialX2 + 90;
         }
-        
+
         if (jogo.getRodadas() % 2 != 0) {
             System.out.println("vez jogador: " + jogo.getNomeJogador());
 
@@ -171,6 +184,8 @@ public class SceneController {
                                 jogo.jogarCarta(cartaTropa);
                                 jogo.atacar();
                                 jogo.proximoRound();
+                                System.out.println();
+                                limpaImagesList();
                                 this.jogo();
                             });
                             card1Vida.setText("Vida: " + String.valueOf(cartaTropa.getVida()));
@@ -196,6 +211,7 @@ public class SceneController {
                                 jogo.jogarCarta(cartaTropa);
                                 jogo.atacar();
                                 jogo.proximoRound();
+                                limpaImagesList();
                                 this.jogo();
                             });
                         } else {
@@ -218,6 +234,7 @@ public class SceneController {
                                 jogo.jogarCarta(cartaTropa);
                                 jogo.atacar();
                                 jogo.proximoRound();
+                                limpaImagesList();
                                 this.jogo();
                             });
                         } else {
@@ -234,7 +251,7 @@ public class SceneController {
                         break;
                 }
             }
-            //jogo.proximoRound();
+            // jogo.proximoRound();
         } else {
             System.out.println("vez jogador: " + jogo.getNomeJogador());
 
@@ -260,6 +277,7 @@ public class SceneController {
                                 jogo.jogarCarta(cartaTropa);
                                 jogo.atacar();
                                 jogo.proximoRound();
+                                limpaImagesList();
                                 this.jogo();
                             });
                             card1Vida.setText("Vida: " + String.valueOf(cartaTropa.getVida()));
@@ -285,6 +303,7 @@ public class SceneController {
                                 jogo.jogarCarta(cartaTropa);
                                 jogo.atacar();
                                 jogo.proximoRound();
+                                limpaImagesList();
                                 this.jogo();
                             });
                         } else {
@@ -307,6 +326,7 @@ public class SceneController {
                                 jogo.jogarCarta(cartaTropa);
                                 jogo.atacar();
                                 jogo.proximoRound();
+                                limpaImagesList();
                                 this.jogo();
                             });
                         } else {
