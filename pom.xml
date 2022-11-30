@@ -57,6 +57,14 @@
                     </archive>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.openjfx</groupId>
+                <artifactId>javafx-maven-plugin</artifactId>
+                <version>0.0.4</version>
+                <configuration>
+                    <mainClass>scenes.App</mainClass>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
