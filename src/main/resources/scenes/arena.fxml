@@ -48,18 +48,6 @@
                   <Image url="@assets/carta-virada.jpg" />
                </image>
             </ImageView>
-            <Text fx:id="Play1Card1Vida" fill="WHITE" layoutX="280.0" layoutY="552.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vida X:" />
-            <Text fx:id="Play1Card1Dano" fill="WHITE" layoutX="280.0" layoutY="569.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dano X:" />
-            <Text fx:id="Play1Card2Dano" fill="WHITE" layoutX="465.0" layoutY="569.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dano X:" />
-            <Text fx:id="Play1Card2Vida" fill="WHITE" layoutX="465.0" layoutY="552.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vida X:" />
-            <Text fx:id="Play1Card3Vida" fill="WHITE" layoutX="648.0" layoutY="552.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vida X:" />
-            <Text fx:id="Play1Card3Dano" fill="WHITE" layoutX="648.0" layoutY="569.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dano X:" />
-            <Text fx:id="Play2Card1Dano" fill="WHITE" layoutX="280.0" layoutY="166.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dano X:" />
-            <Text fx:id="Play2Card1Vida" fill="WHITE" layoutX="280.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vida X:" />
-            <Text fx:id="Play2Card2Vida" fill="WHITE" layoutX="465.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vida X:" />
-            <Text fx:id="Play2Card2Dano" fill="WHITE" layoutX="465.0" layoutY="166.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dano X:" />
-            <Text fx:id="Play2Card3Dano" fill="WHITE" layoutX="648.0" layoutY="166.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dano X:" />
-            <Text fx:id="Play2Card3Vida" fill="WHITE" layoutX="648.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vida X:" />
          </children>
     </AnchorPane>
   </children>
