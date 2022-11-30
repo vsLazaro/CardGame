@@ -168,18 +168,21 @@ public class SceneController {
         int cardVidaY;
         int cardDanoY;
 
+        Text nomeJogador;
         if (jogo.getRodadas() % 2 != 0) {
             initialImgMaoY = 445;
             initialImgMaoX = 277;
             initialTextMaoX = 280;
             cardVidaY = 552;
             cardDanoY = 569;
+            nomeJogador = (Text) parent.lookup("#nomeJogador1");
         } else {
             initialImgMaoY = 43;
             initialImgMaoX = 277;
             initialTextMaoX = 280;
             cardVidaY = 149;
             cardDanoY = 166;
+            nomeJogador = (Text) parent.lookup("#nomeJogador2");
         }
 
         ArrayList<ACarta> listaCartas = jogo.getMaoJogador();
@@ -232,6 +235,8 @@ public class SceneController {
             cardDano.setFill(Color.WHITE);
             listaTextos.add(cardVida);
             listaTextos.add(cardDano);
+            nomeJogador.setText("Sua vez: " + jogo.getNomeJogador());
+
             arenaWrapper.getChildren().add(cardVida);
             arenaWrapper.getChildren().add(cardDano);
         }
