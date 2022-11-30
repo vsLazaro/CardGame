@@ -121,13 +121,12 @@ public class SceneController {
                  * no campo do jogado
                  * quem tiver maior vida no somatorio das vidas das cartas, ganha
                  */
-                
 
                 FXMLLoader root = new FXMLLoader(getClass().getResource("nomeGanhador.fxml"));
                 root.setController(new SceneController(jogo));
                 parent = (Parent) root.load();
                 Text nomeGanhador = (Text) parent.lookup("#nomeGanhador");
-                nomeGanhador.setText(jogo.getGanhador()+" ganhou!");
+                nomeGanhador.setText(jogo.getGanhador() + " ganhou!");
                 scene = new Scene(parent);
                 stage.setScene(scene);
             } else {
@@ -140,35 +139,56 @@ public class SceneController {
             }
         }
 
-        int initialY = 320;
+        int initialY = 305;
         int initialX = 350;
-        /*
-         * TODO:
-         * Mostrar a vida e o dano das cartas que estão no campo
-         */
+      
         ArrayList<ACartaTropa> mesaJogador1 = jogo.getCampoJogador1();
         for (int i = 0; i < mesaJogador1.size(); i++) {
             ImageView img = new ImageView(mesaJogador1.get(i).getDirImage());
+            Text Vida = new Text(String.valueOf("Vida: " + mesaJogador1.get(i).getVida()));
+            Text Dano = new Text(String.valueOf("Dano: " + mesaJogador1.get(i).getDano()));
+            Vida.setY(415);
+            Vida.setX(initialX);
+            Dano.setY(430);
+            Dano.setX(initialX);
             img.setX(initialX);
             img.setY(initialY);
             img.setFitHeight(96);
             img.setFitWidth(77);
+            Dano.setFill(Color.WHITE);
+            Vida.setFill(Color.WHITE);
             arenaWrapper.getChildren().add(img);
+            arenaWrapper.getChildren().add(Vida);
+            arenaWrapper.getChildren().add(Dano);
+            listaTextos.add(Dano);
+            listaTextos.add(Vida);
             listaImagensMesa.add(img);
             initialX = initialX + 90;
         }
 
-        int initialY2 = 200;
+        int initialY2 = 180;
         int initialX2 = 350;
         ArrayList<ACartaTropa> mesaJogador2 = jogo.getCampoJogador2();
         for (int i = 0; i < mesaJogador2.size(); i++) {
             ImageView img = new ImageView(mesaJogador2.get(i).getDirImage());
+            Text Vida = new Text(String.valueOf("Vida: " + mesaJogador2.get(i).getVida()));
+            Text Dano = new Text(String.valueOf("Dano: " + mesaJogador2.get(i).getDano()));
+            Vida.setY(290);
+            Vida.setX(initialX2);
+            Dano.setY(305);
+            Dano.setX(initialX2);
             img.setX(initialX2);
             img.setY(initialY2);
             img.setFitHeight(96);
             img.setFitWidth(77);
+            Dano.setFill(Color.WHITE);
+            Vida.setFill(Color.WHITE);
 
             arenaWrapper.getChildren().add(img);
+            arenaWrapper.getChildren().add(Vida);
+            arenaWrapper.getChildren().add(Dano);
+            listaTextos.add(Dano);
+            listaTextos.add(Vida);
             listaImagensMesa.add(img);
             initialX2 = initialX2 + 90;
         }
