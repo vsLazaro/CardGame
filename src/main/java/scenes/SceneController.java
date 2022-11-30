@@ -68,7 +68,6 @@ public class SceneController {
     }
 
     private void limpaImagesList() {
-        System.out.println("limpei");
         for (ImageView img : listaImagensMesa) {
             arenaWrapper.getChildren().remove(img);
         }
