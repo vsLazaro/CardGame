@@ -258,15 +258,6 @@ public class SceneController {
         this.jogo();
     }
 
-    /*
-     * FXMLLoader root = new FXMLLoader(getClass().getResource("arena.fxml"));
-     * root.setController(new SceneController(jogo));
-     * stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-     * scene = new Scene(root.load());
-     * stage.setScene(scene);
-     * stage.show();
-     */
-
     public void chooseCard(ActionEvent event) throws IOException {
         FXMLLoader root = new FXMLLoader(getClass().getResource("seeHand.fxml"));
         root.setController(new SceneController(jogo));
@@ -290,39 +281,13 @@ public class SceneController {
     }
 
     public void selectCard1(javafx.scene.input.MouseEvent event) throws IOException {
-        /*
-         * System.out.println(this.arena);
-         * System.out.println("Carta: " + getCarta1());
-         * Arena arena = getArena();
-         * ArrayList<ACarta> mao = arena.cartasNaMaoJogadores(1);
-         * if(getCarta1() instanceof ACartaTropa) {
-         * boolean retorno = arena.inserirCarta(1, (ACartaTropa)getCarta1());
-         * } else {
-         * //todo
-         * }
-         * ArrayList<ACartaTropa> mesa = arena.cartasNoCampoJogadores(1);
-         */
-        /*
-         * System.out.println(mesa);
-         * System.out.println("mao: " + mao);
-         * System.out.println(retorno);
-         */
+  
         Parent root = FXMLLoader.load(getClass().getResource("attack2.fxml"));
         AnchorPane arenaWrapper = (AnchorPane) root.lookup("#arenaWrapper");
         // arenaWrapper.getChildren().add(img);
         int initialY = 250;
         int initialX = 200;
-        /*
-         * for (int i = 0; i < mesa.size(); i++) {
-         * ImageView img = new ImageView(mesa.get(i).getDirImage());
-         * img.setX(initialX);
-         * img.setY(initialY);
-         * img.setFitHeight(96);
-         * img.setFitWidth(77);
-         * arenaWrapper.getChildren().add(img);
-         * initialX = initialX + 90;
-         * }
-         */
+
 
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -339,27 +304,6 @@ public class SceneController {
         stage.show();
     }
 
-    /*
-     * public void selectCard2(javafx.scene.input.MouseEvent event) throws
-     * IOException {
-     * System.out.println("card2");
-     * Parent root = FXMLLoader.load(getClass().getResource("switchTurn.fxml"));
-     * stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-     * scene = new Scene(root);
-     * stage.setScene(scene);
-     * stage.show();
-     * }
-     * 
-     * public void selectCard3(javafx.scene.input.MouseEvent event) throws
-     * IOException {
-     * System.out.println("card3");
-     * Parent root = FXMLLoader.load(getClass().getResource("switchTurn.fxml"));
-     * stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-     * scene = new Scene(root);
-     * stage.setScene(scene);
-     * stage.show();
-     * }
-     */
     public void switchTurn(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("seeHand.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -368,12 +312,4 @@ public class SceneController {
         stage.show();
 
     }
-
-    /*
-     * To Do's
-     * - Lógica de troca de turnos e gerenciar renderização de acordo
-     * - Popular "mão" com cartas do backned
-     * -
-     * 
-     */
 }
