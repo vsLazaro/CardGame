@@ -50,9 +50,15 @@ public class Arena {
     public boolean atacar(int jogador)
     {
         if(jogador == 1) {
+            if(this.jogador2.getCartasCampo().isEmpty()) {
+                return false;
+            }
             int dano = this.jogador1.getCartasCampo().get(0).getDano();
             ACartaTropa sofreAtaque = this.jogador2.getCartasCampo().get(0);
             return this.jogador2.getCampo().sofreuAtaque(dano, sofreAtaque);
+        }
+        if(this.jogador1.getCartasCampo().isEmpty()) {
+            return false;
         }
         int dano = this.jogador2.getCartasCampo().get(0).getDano();
         ACartaTropa sofreAtaque = this.jogador1.getCartasCampo().get(0);

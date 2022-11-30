@@ -55,14 +55,10 @@ public class Jogador {
     }
 
     public boolean comprarCarta() {
-        if(!this.comprarCarta) {
-            return false;
-        }
         if(this.baralho.size() <= 0) {
             return false;
         }
         this.mao.add(this.baralho.poll());
-        this.comprou();
         return true;
     }
 
@@ -73,6 +69,7 @@ public class Jogador {
         if(this.mao.contains(carta)) {
             this.campo.inserirCarta(carta);
             this.mao.remove(carta);
+            this.comprarCarta();
             this.jogou();
             return true;
         }
