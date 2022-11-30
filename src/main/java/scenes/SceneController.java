@@ -112,26 +112,40 @@ public class SceneController {
         stage.show();
     }
 
-    public void jogo() {
+    public void jogo() throws IOException {
         System.out.println("Rodada: " + jogo.getRodadas());
         if (jogo.acabouJogo()) {
-            if(jogo.temGanhador()) {
-                /* Para decidir quem ganhou é somada a vida de todas as cartas que permaneceram no campo do jogado
+            if (jogo.temGanhador()) {
+                /*
+                 * Para decidir quem ganhou é somada a vida de todas as cartas que permaneceram
+                 * no campo do jogado
                  * quem tiver maior vida no somatorio das vidas das cartas, ganha
                  */
-                /* TODO: Método de tela de ganhador, que irá mostrar o nome do vencedor */
-                System.out.println("Ganhador: " + jogo.getGanhador());
+                
+
+                FXMLLoader root = new FXMLLoader(getClass().getResource("nomeGanhador.fxml"));
+                root.setController(new SceneController(jogo));
+                parent = (Parent) root.load();
+                Text nomeGanhador = (Text) parent.lookup("#nomeGanhador");
+                nomeGanhador.setText(jogo.getGanhador()+" ganhou!");
+                scene = new Scene(parent);
+                stage.setScene(scene);
             } else {
-                /* TODO: Método de empate, onde irá mostra que deu empate */
                 System.out.println("Empatee");
+                FXMLLoader root = new FXMLLoader(getClass().getResource("empate.fxml"));
+                root.setController(new SceneController(jogo));
+                parent = (Parent) root.load();
+                scene = new Scene(parent);
+                stage.setScene(scene);
             }
         }
 
         int initialY = 320;
         int initialX = 350;
-        /*TODO:
+        /*
+         * TODO:
          * Mostrar a vida e o dano das cartas que estão no campo
-          */        
+         */
         ArrayList<ACartaTropa> mesaJogador1 = jogo.getCampoJogador1();
         for (int i = 0; i < mesaJogador1.size(); i++) {
             ImageView img = new ImageView(mesaJogador1.get(i).getDirImage());
@@ -158,7 +172,7 @@ public class SceneController {
             listaImagensMesa.add(img);
             initialX2 = initialX2 + 90;
         }
-        
+
         int initialImgMaoY1 = 445;
         int initialImgMaoX1 = 277;
         int initialTextMaoX1 = 280;
@@ -178,7 +192,7 @@ public class SceneController {
         int playerTimeY2 = 52;
         if (jogo.getRodadas() % 2 != 0) {
             ArrayList<ACarta> cartasBrancas = jogo.getMaoJogador2();
-            for(int i=0; i < cartasBrancas.size(); i++) {
+            for (int i = 0; i < cartasBrancas.size(); i++) {
                 ImageView img = new ImageView("/scenes/assets/carta-virada.jpg");
                 img.setX(initialImgMaoX2);
                 img.setY(initialImgMaoY2);
@@ -197,7 +211,6 @@ public class SceneController {
                 img.setFitHeight(96);
                 img.setFitWidth(77);
 
-                
                 initialImgMaoX1 = initialImgMaoX1 + somar;
 
                 Text cardVida = new Text();
@@ -214,17 +227,20 @@ public class SceneController {
 
                 initialTextMaoX1 = initialTextMaoX1 + somar;
 
-                
                 if (listaCartas.get(i) instanceof ACartaTropa) {
                     ACartaTropa cartaTropa = (ACartaTropa) listaCartas.get(i);
                     img.setImage(new Image(cartaTropa.getDirImage()));
                     img.setOnMouseClicked(mouseevent -> {
-                        if(jogo.jogarCarta(cartaTropa)) {
+                        if (jogo.jogarCarta(cartaTropa)) {
                             jogo.atacar();
                             jogo.proximoRound();
                         }
                         limpaImagesList();
-                        this.jogo();
+                        try {
+                            this.jogo();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
                     });
                     cardVida.setText("Vida: " + String.valueOf(cartaTropa.getVida()));
                     cardDano.setText("Dano: " + String.valueOf(cartaTropa.getDano()));
@@ -236,11 +252,15 @@ public class SceneController {
                     cardDano.setText("Valor Efeito: " + String.valueOf(cartaFeitico.getValorEfeito()));
                     img.setOnMouseClicked(mouseevent -> {
                         System.out.println("feitiço");
-                
+
                         jogo.jogarCarta(cartaFeitico);
                         jogo.proximoRound();
                         limpaImagesList();
-                        this.jogo();
+                        try {
+                            this.jogo();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
                     });
                 }
 
@@ -254,15 +274,15 @@ public class SceneController {
                 listaTextos.add(cardDano);
                 listaTextos.add(playerTime);
                 listaImagensMesa.add(img);
-                
+
                 arenaWrapper.getChildren().add(img);
                 arenaWrapper.getChildren().add(cardVida);
                 arenaWrapper.getChildren().add(cardDano);
                 arenaWrapper.getChildren().add(playerTime);
-            }    
+            }
         } else {
             ArrayList<ACarta> cartasBrancas = jogo.getMaoJogador1();
-            for(int i=0; i < cartasBrancas.size(); i++) {
+            for (int i = 0; i < cartasBrancas.size(); i++) {
                 ImageView img = new ImageView("/scenes/assets/carta-virada.jpg");
                 img.setX(initialImgMaoX1);
                 img.setY(initialImgMaoY1);
@@ -281,7 +301,6 @@ public class SceneController {
                 img.setFitHeight(96);
                 img.setFitWidth(77);
 
-                
                 initialImgMaoX2 = initialImgMaoX2 + somar;
 
                 Text cardVida = new Text();
@@ -298,17 +317,20 @@ public class SceneController {
 
                 initialTextMaoX2 = initialTextMaoX2 + somar;
 
-                
                 if (listaCartas.get(i) instanceof ACartaTropa) {
                     ACartaTropa cartaTropa = (ACartaTropa) listaCartas.get(i);
                     img.setImage(new Image(cartaTropa.getDirImage()));
                     img.setOnMouseClicked(mouseevent -> {
-                        if(jogo.jogarCarta(cartaTropa)) {
+                        if (jogo.jogarCarta(cartaTropa)) {
                             jogo.atacar();
                             jogo.proximoRound();
                         }
                         limpaImagesList();
-                        this.jogo();
+                        try {
+                            this.jogo();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
                     });
                     cardVida.setText("Vida: " + String.valueOf(cartaTropa.getVida()));
                     cardDano.setText("Dano: " + String.valueOf(cartaTropa.getDano()));
@@ -320,11 +342,15 @@ public class SceneController {
                     cardDano.setText("Valor Efeito: " + String.valueOf(cartaFeitico.getValorEfeito()));
                     img.setOnMouseClicked(mouseevent -> {
                         System.out.println("feitiço");
-                
+
                         jogo.jogarCarta(cartaFeitico);
                         jogo.proximoRound();
                         limpaImagesList();
-                        this.jogo();
+                        try {
+                            this.jogo();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
                     });
                 }
 
@@ -338,12 +364,12 @@ public class SceneController {
                 listaTextos.add(cardDano);
                 listaTextos.add(playerTime);
                 listaImagensMesa.add(img);
-                
+
                 arenaWrapper.getChildren().add(img);
                 arenaWrapper.getChildren().add(cardVida);
                 arenaWrapper.getChildren().add(cardDano);
                 arenaWrapper.getChildren().add(playerTime);
-            }    
+            }
         }
 
         stage.show();
