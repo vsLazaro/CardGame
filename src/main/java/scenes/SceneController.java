@@ -167,7 +167,7 @@ public class SceneController {
         int somar = 185;
         int cardVidaY;
         int cardDanoY;
-        
+
         if (jogo.getRodadas() % 2 != 0) {
             initialImgMaoY = 445;
             initialImgMaoX = 277;
@@ -249,10 +249,8 @@ public class SceneController {
         stage.setScene(scene);
         arenaWrapper = (AnchorPane) parent.lookup("#arenaWrapper");
         Button botaoCentral = (Button) parent.lookup("#botaoCentral");
-        botaoCentral.setOnAction(eventButton -> {
-            this.jogo();
-        });
-
+        arenaWrapper.getChildren().remove(botaoCentral);
+        this.jogo();
     }
 
     /*
