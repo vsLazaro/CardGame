@@ -1,7 +1,6 @@
 package backend;
 
 import java.util.ArrayList;
-import java.util.Map;
 
 import backend.abstracts.ACarta;
 import backend.abstracts.ACartaFeitico;
@@ -67,45 +66,46 @@ public class Jogo {
     }
 
     public boolean acabouJogo() {
-        boolean jogador1 = arena.getJogador1().acabouTurno();
-        boolean jogador2 = arena.getJogador2().acabouTurno();
-
-        if (!jogador1) {
-            ganhador = arena.getJogador2().getNome();
-            return true;
-        }
-
-        if (!jogador2) {
-            ganhador = arena.getJogador1().getNome();
-            return true;
-        }
-        return false;
+        boolean acabou = arena.verificaAcabou();
+        return acabou;        
     }
 
-    public ArrayList<ACartaTropa> jogarCarta(ACarta carta) {
-        System.out.println("chamou jogar carta");
+    public boolean jogarCarta(ACarta carta) {
         if (jogando == 1) {
             if (carta instanceof ACartaTropa) {
-                arena.inserirCarta(jogando, (ACartaTropa) carta);
-                return arena.getJogador1().getCartasCampo();
+                return arena.inserirCarta(jogando, (ACartaTropa) carta);
             }
-            arena.jogarFeitico(jogando, (ACartaFeitico) carta);
-            return arena.getJogador2().getCartasCampo();
+            return arena.jogarFeitico(jogando, (ACartaFeitico) carta);
         }
         if (carta instanceof ACartaTropa) {
-            arena.inserirCarta(jogando, (ACartaTropa) carta);
-            return arena.getJogador2().getCartasCampo();
+            return arena.inserirCarta(jogando, (ACartaTropa) carta);
         }
-        arena.jogarFeitico(jogando, (ACartaFeitico) carta);
-        return arena.getJogador2().getCartasCampo();
+        return arena.jogarFeitico(jogando, (ACartaFeitico) carta);
     }
 
-    public ArrayList<ACartaTropa> atacar() {
+    public boolean atacar() {
         if (jogando == 1) {
-            arena.atacar(jogando);
-            return arena.getJogador2().getCartasCampo();
+            return arena.atacar(jogando);
         }
-        arena.atacar(jogando);
-        return arena.getJogador1().getCartasCampo();
+        return arena.atacar(jogando);
+    }
+
+    public boolean temGanhador() {
+        int vidaJogador1 = 0;
+        int vidaJogador2 = 0;
+
+        for(ACartaTropa carta : this.arena.getJogador1().getCartasCampo()) {
+            vidaJogador1 += carta.getVida();
+        }
+        for(ACartaTropa carta : this.arena.getJogador2().getCartasCampo()) {
+            vidaJogador2 += carta.getVida();
+        }
+
+        if(vidaJogador1 == vidaJogador2) {
+            return false;
+        }
+
+        this.ganhador = (vidaJogador1 > vidaJogador2) ? this.arena.getJogador1().getNome() : this.arena.getJogador2().getNome();
+        return true;
     }
 }

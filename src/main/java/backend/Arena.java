@@ -9,7 +9,6 @@ import backend.abstracts.ACartaTropa;
 public class Arena {
     private Jogador jogador1;
     private Jogador jogador2;
-    private int rodada = 0;
 
     public Arena(String nomeJogador1, String nomeJogador2)
     {
@@ -53,58 +52,49 @@ public class Arena {
             if(this.jogador2.getCartasCampo().isEmpty()) {
                 return false;
             }
-            int dano = this.jogador1.getCartasCampo().get(0).getDano();
+            int dano = this.jogador1.getCartasCampo().get(this.jogador1.getCartasCampo().size()-1).getDano();
             ACartaTropa sofreAtaque = this.jogador2.getCartasCampo().get(0);
             return this.jogador2.getCampo().sofreuAtaque(dano, sofreAtaque);
         }
         if(this.jogador1.getCartasCampo().isEmpty()) {
             return false;
         }
-        int dano = this.jogador2.getCartasCampo().get(0).getDano();
+        int dano = this.jogador2.getCartasCampo().get(this.jogador2.getCartasCampo().size()-1).getDano();
         ACartaTropa sofreAtaque = this.jogador1.getCartasCampo().get(0);
         return this.jogador1.getCampo().sofreuAtaque(dano, sofreAtaque);
     }
 
     public boolean jogarFeitico(int jogador, ACartaFeitico feitico) {
         int valorEfeito = feitico.getValorEfeito();
+        boolean retorno = false;
+        System.out.println("JogarFeitico() -> Arena");
         if(jogador == 1) {
             if(feitico.getEfeito().equals("cura")) {
                 jogador1.matarFeitico(feitico);
-                for(ACartaTropa carta : this.jogador1.getCartasCampo()) {
-                    jogador1.utilizarFeiticoCura(valorEfeito, carta);
-                }
-                return true;
+                retorno = jogador1.utilizarFeiticoCura(valorEfeito);
             }
             if(feitico.getEfeito().equals("bolzificar")) {
-                for(ACartaTropa carta : this.jogador1.getCartasCampo()) {
-                    jogador1.getCampo().bolzificar(valorEfeito, carta);
-                }
-                return true;
+                retorno = jogador1.bolzificar(valorEfeito);
+            }
+
+            if(feitico.getEfeito().equals("dano")) {
+                retorno = jogador2.getCampo().sofreuAtaqueFeitico(valorEfeito);
             }
             jogador1.matarFeitico(feitico);
-            for(ACartaTropa carta : this.jogador2.getCartasCampo()) {
-                jogador2.getCampo().sofreuAtaque(valorEfeito, carta);
-            }
-            return true;
+            return retorno;
         }
         if(feitico.getEfeito().equals("cura")) {
-            jogador2.matarFeitico(feitico);
-            for(ACartaTropa carta : this.jogador2.getCartasCampo()) {
-                jogador2.utilizarFeiticoCura(valorEfeito, carta);
-            }
-            return true;
+            retorno = jogador2.utilizarFeiticoCura(valorEfeito);
         }
         if(feitico.getEfeito().equals("bolzificar")) {
-            for(ACartaTropa carta : this.jogador2.getCartasCampo()) {
-                jogador2.getCampo().bolzificar(valorEfeito, carta);
-            }
-            return true;
+            retorno = jogador2.bolzificar(valorEfeito);
         }
+        if(feitico.getEfeito().equals("dano")) {
+            retorno = jogador1.getCampo().sofreuAtaqueFeitico(valorEfeito);
+        }
+        
         jogador2.matarFeitico(feitico);
-        for(ACartaTropa carta : this.jogador1.getCartasCampo()) {
-            jogador1.getCampo().sofreuAtaque(valorEfeito, carta);
-        }
-        return true;
+        return retorno;
     }
 
     public boolean inserirCarta(int jogador, ACartaTropa carta) {
@@ -112,5 +102,12 @@ public class Arena {
             return jogador1.jogarCarta(carta);
         }
         return jogador2.jogarCarta(carta);
+    }
+
+    public boolean verificaAcabou() {
+        if(jogador1.getCartaMao().isEmpty() && jogador2.getCartaMao().isEmpty()) {
+            return true;
+        }
+        return false;
     }
 }

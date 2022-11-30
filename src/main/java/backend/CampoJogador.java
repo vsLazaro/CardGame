@@ -25,28 +25,12 @@ public class CampoJogador {
         return false;
     }
 
-    public boolean curar(int cura, ACartaTropa carta) {
-        if(this.cartasCampo.contains(carta)) {
-            for (ACartaTropa aCarta : cartasCampo) {
-                if(aCarta.getNome().equals(carta.getNome())) {
-                    aCarta.cura(cura);
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-
-    public boolean bolzificar(int danoAumentado, ACartaTropa carta) {
-        if(this.cartasCampo.contains(carta)) {
-            for (ACartaTropa aCarta : cartasCampo) {
-                if(aCarta.getNome().equals(carta.getNome())) {
-                    aCarta.setFuria(true, danoAumentado);
-                    return true;
-                }
-            }
-        }
-        return false;
+    public boolean curar(int cura) {
+        if(this.cartasCampo.size() <= 0) {
+           return false; 
+        } 
+        this.cartasCampo.get(0).cura(cura);
+        return true;
     }
 
     public boolean sofreuAtaque(int dano, ACartaTropa carta) {
@@ -64,11 +48,14 @@ public class CampoJogador {
         return false;
     }
 
-    public void passouPrimeiroRound() {
-        for (ACartaTropa aCartaTropa : cartasCampo) {
-            if(aCartaTropa.getPrimeiroRound()) {
-                aCartaTropa.passouPrimeiroRound();
-            }            
+    public boolean sofreuAtaqueFeitico(int dano) {
+        if(this.cartasCampo.size()<=0) {
+            return false;
         }
+        this.cartasCampo.get(0).danoSofrido(dano);
+        if(this.cartasCampo.get(0).getVida()<=0) {
+            this.cartaMorreu(this.cartasCampo.get(0));
+        }
+        return true;
     }
 }

@@ -84,7 +84,7 @@ public class GerenciadorDeBaralho {
         feitico.add(carta);
         carta = new Feitico("Cura", "feitico", "/scenes/assets/cura.jpg", "cura", 1);
         feitico.add(carta);
-        carta = new Feitico("Bolzificação", "feitico", "/scenes/assets/bolzificacao.jpg", "bolzifica", 2);
+        carta = new Feitico("Bolzificação", "feitico", "/scenes/assets/bolzificacao.jpg", "bolzificar", 2);
         feitico.add(carta);
         return feitico;
     }

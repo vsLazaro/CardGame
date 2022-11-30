@@ -62,7 +62,12 @@ public class SceneController {
     ArrayList<ImageView> listaImagensMesa = new ArrayList<>();
     ArrayList<Text> listaTextos = new ArrayList<>();
 
+    public SceneController(Jogo jogo) {
+        this.jogo = jogo;
+    }
+
     private void limpaImagesList() {
+        System.out.println("limpei");
         for (ImageView img : listaImagensMesa) {
             arenaWrapper.getChildren().remove(img);
         }
@@ -70,22 +75,6 @@ public class SceneController {
         for (Text texto : listaTextos) {
             arenaWrapper.getChildren().remove(texto);
         }
-    }
-
-    private void setCurrentPlayer(int rodada) {
-        playerId = (rodada % 2) + 1;
-    }
-
-    private int getCurrentPlayer() {
-        return playerId;
-    }
-
-    public SceneController(Jogo jogo) {
-        this.jogo = jogo;
-    }
-
-    private Jogo getJogo() {
-        return jogo;
     }
 
     public void switchToScene1(ActionEvent event) throws IOException {
@@ -121,20 +110,26 @@ public class SceneController {
         stage.show();
     }
 
-    public void atualizarMesa(AnchorPane arenaWrapper, ArrayList<ACartaTropa> lista) {
-        System.out.println("chMOU ATULIZA");
-
-    }
-
     public void jogo() {
-
+        System.out.println("Rodada: " + jogo.getRodadas());
         if (jogo.acabouJogo()) {
-
+            if(jogo.temGanhador()) {
+                /* Para decidir quem ganhou é somada a vida de todas as cartas que permaneceram no campo do jogado
+                 * quem tiver maior vida no somatorio das vidas das cartas, ganha
+                 */
+                /* TODO: Método de tela de ganhador, que irá mostrar o nome do vencedor */
+                System.out.println("Ganhador: " + jogo.getGanhador());
+            } else {
+                /* TODO: Método de empate, onde irá mostra que deu empate */
+                System.out.println("Empatee");
+            }
         }
 
         int initialY = 320;
         int initialX = 350;
-
+        /*TODO:
+         * Mostrar a vida e o dano das cartas que estão no campo
+          */
         ArrayList<ACartaTropa> mesaJogador1 = jogo.getCampoJogador1();
         for (int i = 0; i < mesaJogador1.size(); i++) {
             ImageView img = new ImageView(mesaJogador1.get(i).getDirImage());
@@ -184,7 +179,6 @@ public class SceneController {
             cardDanoY = 166;
             nomeJogador = (Text) parent.lookup("#nomeJogador2");
         }
-
         ArrayList<ACarta> listaCartas = jogo.getMaoJogador();
         for (int i = 0; i < listaCartas.size(); i++) {
             ImageView img = new ImageView(listaCartas.get(i).getDirImage());
@@ -193,8 +187,7 @@ public class SceneController {
             img.setFitHeight(96);
             img.setFitWidth(77);
 
-            arenaWrapper.getChildren().add(img);
-            listaImagensMesa.add(img);
+            
             initialImgMaoX = initialImgMaoX + somar;
 
             Text cardVida = new Text();
@@ -207,14 +200,15 @@ public class SceneController {
 
             initialTextMaoX = initialTextMaoX + somar;
 
+            
             if (listaCartas.get(i) instanceof ACartaTropa) {
                 ACartaTropa cartaTropa = (ACartaTropa) listaCartas.get(i);
                 img.setImage(new Image(cartaTropa.getDirImage()));
                 img.setOnMouseClicked(mouseevent -> {
-                    jogo.jogarCarta(cartaTropa);
-                    jogo.atacar();
-                    jogo.proximoRound();
-                    System.out.println();
+                    if(jogo.jogarCarta(cartaTropa)) {
+                        jogo.atacar();
+                        jogo.proximoRound();
+                    }
                     limpaImagesList();
                     this.jogo();
                 });
@@ -227,7 +221,12 @@ public class SceneController {
                 cardVida.setText("Efeito: " + cartaFeitico.getEfeito());
                 cardDano.setText("Valor Efeito: " + String.valueOf(cartaFeitico.getValorEfeito()));
                 img.setOnMouseClicked(mouseevent -> {
+                    System.out.println("feitiço");
+            
                     jogo.jogarCarta(cartaFeitico);
+                    jogo.proximoRound();
+                    limpaImagesList();
+                    this.jogo();
                 });
             }
 
@@ -235,8 +234,10 @@ public class SceneController {
             cardDano.setFill(Color.WHITE);
             listaTextos.add(cardVida);
             listaTextos.add(cardDano);
+            listaImagensMesa.add(img);
             nomeJogador.setText("Sua vez: " + jogo.getNomeJogador());
-
+            
+            arenaWrapper.getChildren().add(img);
             arenaWrapper.getChildren().add(cardVida);
             arenaWrapper.getChildren().add(cardDano);
         }
@@ -256,60 +257,5 @@ public class SceneController {
         Button botaoCentral = (Button) parent.lookup("#botaoCentral");
         arenaWrapper.getChildren().remove(botaoCentral);
         this.jogo();
-    }
-
-    public void chooseCard(ActionEvent event) throws IOException {
-        FXMLLoader root = new FXMLLoader(getClass().getResource("seeHand.fxml"));
-        root.setController(new SceneController(jogo));
-        Parent parent = (Parent) root.load();
-        ImageView card1 = (ImageView) parent.lookup("#card1");
-        Text vidaCard1 = (Text) parent.lookup("#vidaCard1");
-        Text danoCard1 = (Text) parent.lookup("#danoCard1");
-        ImageView card2 = (ImageView) parent.lookup("#card2");
-        Text vidaCard2 = (Text) parent.lookup("#vidaCard2");
-        Text danoCard2 = (Text) parent.lookup("#danoCard2");
-
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-        scene = new Scene(parent);
-
-        stage.setScene(scene);
-        stage.show();
-        System.out.println(this.jogo);
-        int numRodadas = 0;
-
-    }
-
-    public void selectCard1(javafx.scene.input.MouseEvent event) throws IOException {
-  
-        Parent root = FXMLLoader.load(getClass().getResource("attack2.fxml"));
-        AnchorPane arenaWrapper = (AnchorPane) root.lookup("#arenaWrapper");
-        // arenaWrapper.getChildren().add(img);
-        int initialY = 250;
-        int initialX = 200;
-
-
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    public void selectCard2(javafx.scene.input.MouseEvent event) throws IOException {
-        System.out.println(card1);
-        Parent root = FXMLLoader.load(getClass().getResource("switchTurn.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    public void switchTurn(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("seeHand.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-
     }
 }
