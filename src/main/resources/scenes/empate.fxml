@@ -17,7 +17,7 @@
                   <Image url="@assets/blue-background.jpg" />
                </image>
             </ImageView>
-            <Button fx:id="botaoCentral" layoutX="50.0" layoutY="275.0" mnemonicParsing="false" onAction="#switchToScene1" text="Recomçar jogo" />
+            <Button fx:id="botaoCentral" layoutX="50.0" layoutY="275.0" mnemonicParsing="false" onAction="#switchToScene1" text="Recomeçar jogo" />
             <Text fx:id="empate" fill="WHITE" layoutX="386.0" layoutY="254.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Empate">
                <font>
                   <Font size="48.0" />

@@ -22,7 +22,7 @@
                   <Image url="@assets/confete.png" />
                </image>
             </ImageView>
-            <Button fx:id="botaoCentral" layoutX="50.0" layoutY="275.0" mnemonicParsing="false" onAction="#switchToScene1" text="Recomçar jogo" />
+            <Button fx:id="botaoCentral" layoutX="50.0" layoutY="275.0" mnemonicParsing="false" onAction="#switchToScene1" text="Recomeçar jogo" />
             <Text fx:id="nomeGanhador" fill="WHITE" layoutX="327.0" layoutY="258.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Jogador X ganhou!">
                <font>
                   <Font size="36.0" />
