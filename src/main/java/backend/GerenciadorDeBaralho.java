@@ -55,7 +55,7 @@ public class GerenciadorDeBaralho {
         tropas.add(carta);
         carta = new Tanque("Esqueletasso", "tanque", "/scenes/assets/esqueleto-gigante.jpg", 8, 1);
         tropas.add(carta);
-        carta = new Terrestre("Corredor", "terrestre", "/scenes/assets/esqueleto-gigante.jpg", 4, 4);
+        carta = new Terrestre("Corredor", "terrestre", "/scenes/assets/corredor.jpg", 4, 4);
         tropas.add(carta);
         carta = new Terrestre("Cavaleiro", "terrestre", "/scenes/assets/cavaleiro.jpg", 4, 4);
         tropas.add(carta);

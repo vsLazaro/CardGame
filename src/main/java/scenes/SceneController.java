@@ -117,11 +117,9 @@ public class SceneController {
         if(jogo.acabouJogo()) {
             
         }
-        System.out.println("Jogador atual: " + this.jogo.getNomeJogador());
-        System.out.println("Numero rodada: " + jogo.getRodadas());
-        System.out.println("getCampoJogador1 " + jogo.getCampoJogador1());
-        int initialY = 30;
-        int initialX = 200;
+
+        int initialY = 320;
+        int initialX = 350;
         
         ArrayList<ACartaTropa> mesaJogador1 = jogo.getCampoJogador1();
         for (int i = 0; i < mesaJogador1.size(); i++) {
@@ -134,10 +132,9 @@ public class SceneController {
             initialX = initialX + 90;
         }
 
-        System.out.println("getCampoJogador2 " + jogo.getCampoJogador2());
 
-        int initialY2 = 430;
-        int initialX2 = 200;
+        int initialY2 = 200;
+        int initialX2 = 350;
         ArrayList<ACartaTropa> mesaJogador2 = jogo.getCampoJogador2();
         for (int i = 0; i < mesaJogador2.size(); i++) {
             ImageView img = new ImageView(mesaJogador2.get(i).getDirImage());
